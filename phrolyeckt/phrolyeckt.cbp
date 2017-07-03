@@ -13,7 +13,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="../../SFML-2.4.2" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-d" />
@@ -40,10 +39,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="../../SFML-2.4.2/include" />
+			<Add directory="../SFML/include" />
 		</Compiler>
 		<Linker>
-			<Add directory="../../SFML-2.4.2/lib" />
+			<Add directory="../SFML/lib" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Extensions>
