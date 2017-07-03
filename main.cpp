@@ -2,7 +2,10 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Koporso!");
+    sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+
+    sf::RenderWindow window(desktop, "SFML Window", sf::Style::Fullscreen);
+
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
