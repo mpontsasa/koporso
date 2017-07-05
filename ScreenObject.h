@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
-#include <Vector>
+#include <list>
 
 class ScreenObject  // Everything in the screen
 {
@@ -23,17 +23,19 @@ public:
 private:
     ScreenRoot(){};
 
-    class ScreenObjectList  // All the object on the screen
+
+    class Stage  // All the object on one stage
     {
     public:
-        ScreenObjectList(){};
+        Stage(){};
 
 
 
     private:
-        std::vector<ScreenObject> *dinamicObjectList;   //Objects that may move in depth on the screen
-        std::vector<ScreenObject> *staticObjectList;    //Objects that don't move in depth on the screen
+        std::list<ScreenObject> *dinamicObjectList;   //Objects that may move in depth on the stage
+        std::list<ScreenObject> *staticObjectList;    //Objects that don't move in depth on the stage
     };
 
-    ScreenObjectList so;  //The object container
+
+    std::list<Stage> stageList;  //List of stages on screen
 };
