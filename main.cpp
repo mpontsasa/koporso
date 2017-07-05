@@ -24,6 +24,10 @@ int main()
                         {   window.close();
                             break;
                         }
+                        default:
+                        {
+                            ///fill
+                        }
                         ///more keycases (lower case, upper case...etc)
                     }
 
@@ -32,11 +36,15 @@ int main()
 
                 case sf::Event::MouseButtonPressed:
                 {
-                    if(sos.Hit(sf::Mouse::getPosition()))
+                    if(sos.hit(sf::Mouse::getPosition()))
                     {
-                        sos.GetEvent(event);
+                        sos.getEvent(event);
                     }
                     break;
+                }
+                default:
+                {
+                    ///fill
                 }
 
 
