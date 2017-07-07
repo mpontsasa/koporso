@@ -11,31 +11,21 @@ public:
     int getZValue() const {return zValue;}
     void setZValue(int zv_){zValue = zv_;}
 private:
-    int zValue; //The value of depth (z coordinate)
+    int zValue; //The value of depth (z coordinate) !Compared to parent! Only interesting if the object may move
+
+    std::list<ScreenObject> *dinamicObjectList;   //Sub-objects that may move in depth on the stage
+    std::list<ScreenObject> *staticObjectList;    //Sub-objects that don't move in depth on the stage
 };
 
 
-class ScreenRoot    // SINGLESTONE! Controls the screen output and mouse input
+class ScreenRoot : ScreenObject // SINGLESTONE!
 {
 public:
-    static ScreenRoot& access();    //returns the root object
+    static ScreenRoot& access();    // Return the root object
+    void getEvent(sf::Event event_){}   // Don't do anything with event
+    virtual bool hit(sf::Vector2i point){return 1;} // Always hit
+    virtual void draw(sf::Vector2i pos){}   //No need to draw anything
 
 private:
-    ScreenRoot(){};
-
-
-    class Stage  // All the object on one stage
-    {
-    public:
-        Stage(){};
-
-
-
-    private:
-        std::list<ScreenObject> *dinamicObjectList;   //Objects that may move in depth on the stage
-        std::list<ScreenObject> *staticObjectList;    //Objects that don't move in depth on the stage
-    };
-
-
-    std::list<Stage> stageList;  //List of stages on screen
+    ScreenRoot(){}
 };

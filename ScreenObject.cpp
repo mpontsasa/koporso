@@ -2,6 +2,6 @@
 
 ScreenRoot& ScreenRoot::access()
 {
-    static ScreenRoot *sr = new ScreenRoot;
-    return *sr;
+    static ScreenRoot root;
+    return root;
 }
