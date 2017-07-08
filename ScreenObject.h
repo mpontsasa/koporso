@@ -40,7 +40,7 @@ public:
     sf::RenderWindow *window;
 
 private:
-    ScreenRoot(){}
+ //   ScreenRoot(){}
 
 };
 

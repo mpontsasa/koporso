@@ -7,7 +7,7 @@ void SimpleImage::drawThis()
 ScreenRoot::access().window->draw(s);
 }
 
-SimpleImage::SimpleImage(char *img, int x, int y)
+SimpleImage::SimpleImage(char *img, int x, int y, int depth)
     {
     t.loadFromFile(img);
     s.setTexture(t);
@@ -15,6 +15,7 @@ SimpleImage::SimpleImage(char *img, int x, int y)
 
     xValue=x;
     yValue=y;
+    zValue=depth;
     }
 
 

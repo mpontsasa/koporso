@@ -6,8 +6,11 @@ int main()
 {
     ShapeSO sos;
 
-    SimpleImage img("../phrolyeckt/BG.JPG",100,100);
-    SimpleImage img2("../phrolyeckt/BG.JPG",300,300);
+    SimpleImage img("../phrolyeckt/BG.JPG",100,100,1);
+    SimpleImage img2("../phrolyeckt/BG.JPG",300,300,2);
+
+    ScreenRoot::access().addStaticSo(&img);
+    ScreenRoot::access().addStaticSo(&img2);
 
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
 
@@ -54,9 +57,12 @@ int main()
         }
 
     ScreenRoot::access().window->clear();
-    ScreenRoot::access().window->draw(sos.cs);
-    img.drawThis();
-    img2.drawThis();
+    //ScreenRoot::access().window->draw(sos.cs);
+    //img.drawThis();
+    //img2.drawThis();
+
+    ScreenRoot::access().draw();
+
     ScreenRoot::access().window->display();
 
     }
