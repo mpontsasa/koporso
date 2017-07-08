@@ -1,5 +1,6 @@
 #include "ScreenObject.h"
 #include <list>
+#include <iostream>
 
 void ScreenObject::draw()
 {
@@ -49,6 +50,12 @@ void ScreenObject::addStaticSo(ScreenObject *so_)
         li2--;
     }
     (*li) = so_;
+
+    for (auto itl = staticObjectList.begin(); itl != staticObjectList.end(); itl ++)
+    {
+        std::cout << *itl << " ";
+    }
+    std::cout << '\n';
 }
 
 void ScreenObject::addDinamicSo(ScreenObject *so_)
