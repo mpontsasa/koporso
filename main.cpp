@@ -1,18 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include "../koporso/ShapeSO.h"
+#include "../koporso/SimpleImage.h"
 
 int main()
 {
     ShapeSO sos;
 
+    SimpleImage img("../phrolyeckt/BG.JPG",100,100);
+    SimpleImage img2("../phrolyeckt/BG.JPG",300,300);
+
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
 
-    sf::RenderWindow window(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
+    ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
-    while (window.isOpen()) //while the window is open
+    while (ScreenRoot::access().window ->isOpen()) //while the window is open
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (ScreenRoot::access().window->pollEvent(event))
         {
             switch(event.type)
             {
@@ -21,7 +25,7 @@ int main()
                     switch(event.key.code)
                     {
                         case sf::Keyboard::Escape:
-                        {   window.close();
+                        {   ScreenRoot::access().window->close();
                             break;
                         }
                         default:
@@ -51,8 +55,12 @@ int main()
             }
         }
 
-    window.draw(sos.cs);
-    window.display();
+    ScreenRoot::access().window->clear();
+    ScreenRoot::access().window->draw(sos.cs);
+    img.drawThis();
+    img2.drawThis();
+    ScreenRoot::access().window->display();
+
     }
 
     return 0;

@@ -17,11 +17,11 @@ public:
     void addDinamicSo();
     int getZValue() const {return zValue;}
     void setZValue(int zv_){zValue = zv_;}
-private:
+
+protected:
     int xValue; //x coordinate !Compared to screen!
     int yValue; //y coordinate !Compared to screen!
     int zValue; //The value of depth (z coordinate) !Compared to parent! Only interesting if the object may move
-
 
     std::list<ScreenObject*> dinamicObjectList;   //Sub-objects that may move in depth on the stage
     std::list<ScreenObject*> staticObjectList;    //Sub-objects that don't move in depth on the stage
@@ -37,8 +37,11 @@ public:
 
     static ScreenRoot& access();    // Return the root object++
 
+    sf::RenderWindow *window;
+
 private:
     ScreenRoot(){}
+
 };
 
 #endif //SCREENOBJECT_H
