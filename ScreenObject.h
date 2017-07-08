@@ -13,8 +13,8 @@ public:
     virtual void drawThis() = 0;    // Draws This Object
     virtual void draw();        //Draws the object and sub-objects
 
-    void addStaticSo();
-    void addDinamicSo();
+    void addStaticSo(ScreenObject *so_);
+    void addDinamicSo(ScreenObject *so_);
     int getZValue() const {return zValue;}
     void setZValue(int zv_){zValue = zv_;}
 private:
