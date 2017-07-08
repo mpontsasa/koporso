@@ -6,11 +6,12 @@ int main()
 {
     ShapeSO sos;
 
-    SimpleImage img("../koporso/Resources/BG.JPG",100,100,1);
-    SimpleImage img2("../koporso/Resources/BG.JPG",300,300,2);
+    SimpleImage img("../koporso/Resources/BG.JPG",0,0,3);
+    SimpleImage img2("../koporso/Resources/BG.JPG",300,300,4);
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
+
 
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
 
@@ -56,14 +57,17 @@ int main()
             }
         }
 
-    ScreenRoot::access().window->clear();
-    //ScreenRoot::access().window->draw(sos.cs);
-    //img.drawThis();
-    //img2.drawThis();
+        ScreenRoot::access().window->clear();
+        //ScreenRoot::access().window->draw(sos.cs);
+        //img.drawThis();
+        //img2.drawThis();
 
-    ScreenRoot::access().draw();
+        ScreenRoot::access().draw();
 
-    ScreenRoot::access().window->display();
+        //img.draw();
+        //img2.draw();
+
+        ScreenRoot::access().window->display();
 
     }
 

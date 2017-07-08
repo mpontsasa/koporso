@@ -2,11 +2,13 @@
 #include <list>
 #include <iostream>
 
-void ScreenObject::draw()
+void ScreenObject::draw() const
 {
     drawThis(); //draw this object to screen
     auto dinIter = dinamicObjectList.begin();   //Iterator for list of dynamic sub-objects
     auto statIter = staticObjectList.begin();
+
+    //std::cout<<"\n"<<*dinIter<<" "<<*statIter<<'\n';
 
     while(dinIter != dinamicObjectList.end() && statIter != staticObjectList.end()) //While there are static and dynamic objects to, draw the one in the back
     {
@@ -26,7 +28,7 @@ void ScreenObject::draw()
         (*dinIter) -> draw();
         dinIter ++;
     }
-    while (statIter != dinamicObjectList.end()) //draw remaining static screen objects
+    while (statIter != staticObjectList.end()) //draw remaining static screen objects
     {
         (*statIter) -> draw();
         statIter ++;
