@@ -6,8 +6,8 @@ int main()
 {
     ShapeSO sos;
 
-    SimpleImage img("Resources/BG.JPG",100,100,1);
-    SimpleImage img2("Resources/BG.JPG",300,300,2);
+    SimpleImage img("../koporso/Resources/BG.JPG",100,100,1);
+    SimpleImage img2("../koporso/Resources/BG.JPG",300,300,2);
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
