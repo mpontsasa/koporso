@@ -10,7 +10,7 @@ public:
 
     void getEvent(sf::Event event_){std::cout << "yaay";}
     bool hit(sf::Vector2i point){return (sqrt((100 - point.x)*(100 - point.x) + (100 - point.y)*(100 - point.y)) <= 100);}
-    void draw(sf::Vector2i){std::cout << "Draw";}
+    void drawThis(){std::cout << "Draw";}
 //private:
     sf::CircleShape cs;
 };
