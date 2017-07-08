@@ -51,11 +51,6 @@ void ScreenObject::addStaticSo(ScreenObject *so_)
     }
     (*li) = so_;
 
-    for (auto itl = staticObjectList.begin(); itl != staticObjectList.end(); itl ++)
-    {
-        std::cout << *itl << " ";
-    }
-    std::cout << '\n';
 }
 
 void ScreenObject::addDinamicSo(ScreenObject *so_)
