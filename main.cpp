@@ -19,7 +19,7 @@ int main()
 //Initialiseing the time
     gameClock.restart();    // start the GameClock
     sf::Time lastUpdate = sf::milliseconds(0);  // Initializes the last update to zero
-    const sf::Time updateTime = sf::milliseconds(100);   //Time between two
+    const sf::Time updateTime = sf::milliseconds(50);   //Time between two
 
     int i = 0;
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
