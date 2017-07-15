@@ -3,9 +3,12 @@
 #include "SimpleImage.h"
 #include <iostream>
 
-void SimpleImage::drawThis() const
+void SimpleImage::drawThis()
 {
     ScreenRoot::access().window->draw(s);
+    xValue ++;
+    yValue ++;
+    s.setPosition(xValue,yValue);
 }
 
 SimpleImage::SimpleImage(char *img, int x, int y, int depth)

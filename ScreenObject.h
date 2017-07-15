@@ -10,8 +10,8 @@ class ScreenObject  // Everything in the screen
 public:
     virtual void getEvent(sf::Event event_) = 0;    //Handles the event
     virtual bool hit(sf::Vector2i point) = 0;         //true if the object contains (x,y) point
-    virtual void drawThis() const = 0;    // Draws This Object
-    virtual void draw() const;        //Draws the object and sub-objects
+    virtual void drawThis() = 0;    // Draws This Object
+    virtual void draw();        //Draws the object and sub-objects
 
     void addStaticSo(ScreenObject *so_);
     void addDinamicSo(ScreenObject *so_);
@@ -33,7 +33,7 @@ class ScreenRoot : public ScreenObject // SINGLESTONE!
 public:
     void getEvent(sf::Event event_){}   // Don't do anything with event
     virtual bool hit(sf::Vector2i point){return 1;} // Always hit
-    virtual void drawThis() const{}   //No need to draw anything
+    virtual void drawThis(){}   //No need to draw anything
 
     static ScreenRoot& access();    // Return the root object++
 

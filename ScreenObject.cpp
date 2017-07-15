@@ -2,7 +2,7 @@
 #include <list>
 #include <iostream>
 
-void ScreenObject::draw() const
+void ScreenObject::draw()
 {
     drawThis(); //draw this object to screen
     auto dinIter = dinamicObjectList.begin();   //Iterator for list of dynamic sub-objects
@@ -79,3 +79,4 @@ ScreenRoot& ScreenRoot::access()
     static ScreenRoot root;
     return root;
 }
+
