@@ -12,7 +12,7 @@ public:
 
     void getEvent(sf::Event event_){}
     bool hit(sf::Vector2i point){return false;}
-    void drawThis() const;
+    void drawThis();
 private:
     sf::Texture t;
     sf::Sprite s;
