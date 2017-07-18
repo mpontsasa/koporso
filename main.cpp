@@ -72,8 +72,6 @@ int main()
             ScreenRoot::access().window->display();
         }
 
-
-
     }
 
     return 0;

@@ -23,12 +23,15 @@ protected:
     int yValue; //y coordinate !Compared to screen!
     int zValue; //The value of depth (z coordinate) !Compared to parent! Only interesting if the object may move
 
+    int hight;  // full height
+    int width;  // full width
+
     std::list<ScreenObject*> dinamicObjectList;   //Sub-objects that may move in depth on the stage
     std::list<ScreenObject*> staticObjectList;    //Sub-objects that don't move in depth on the stage
 };
 
 
-class ScreenRoot : public ScreenObject // SINGLESTONE!
+class ScreenRoot : public ScreenObject // SINGLETON!
 {
 public:
     void getEvent(sf::Event event_){}   // Don't do anything with event

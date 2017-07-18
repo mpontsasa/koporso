@@ -3,11 +3,13 @@
 
 #include "ScreenObject.h"
 #include "utility.h"
+#include <SFML/System/Vector2.hpp>
 
 
 class StandardSO : public ScreenObject
 {
     void drawThis();
+    bool hit(sf::Vector2i point){return 1;} ///test
 
 protected:
 
@@ -24,6 +26,8 @@ protected:
         lie, intr, stand, outr
     } AnimationState;
 
+    sf::Texture texture;
+    sf::Sprite sprite;
 };
 
 #endif //STANDARDSO_H

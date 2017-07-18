@@ -18,5 +18,6 @@ void StandardSO::drawThis()
         break;
     }
 
-
+    ScreenRoot::access().window->draw(sprite);
 }
+
