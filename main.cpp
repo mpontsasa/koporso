@@ -28,7 +28,7 @@ int main()
     ScreenRoot::access().addStaticSo(&creature1);
 
 
-// Initialiseing the screen
+// Initialising the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
     ScreenRoot::access().window->setView(view);
