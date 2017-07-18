@@ -5,7 +5,6 @@
 #include "utility.h"
 #include <SFML/System/Vector2.hpp>
 
-
 class StandardSO : public ScreenObject
 {
     void drawThis();
@@ -26,8 +25,8 @@ protected:
         lie, intr, stand, outr
     } AnimationState;
 
-    sf::Texture texture;
-    sf::Sprite sprite;
+    sf::Texture *texture;
+    sf::Sprite *sprite;
 };
 
 #endif //STANDARDSO_H

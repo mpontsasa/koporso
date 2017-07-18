@@ -2,16 +2,20 @@
 #include "../koporso/ShapeSO.h"
 #include "../koporso/SimpleImage.h"
 #include "utility.h"
+#include "../koporso/Thing.h"
 
 int main()
 {
     ShapeSO sos;
+    Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
+
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,4);
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
+    ScreenRoot::access().addStaticSo(&thing);
 
 // Initialiseing the screen
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
@@ -21,7 +25,6 @@ int main()
     sf::Time lastUpdate = sf::milliseconds(0);  // Initializes the last update to zero
     const sf::Time updateTime = sf::milliseconds(50);   //Time between two
 
-    int i = 0;
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
     {
         sf::Event event;
