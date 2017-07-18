@@ -16,5 +16,5 @@ void initializeUtility ()
 //Time initialization
     gameClock.restart();    // start the GameClock
     lastUpdate = sf::milliseconds(0);
-    view.reset(sf::FloatRect(0,0,desktop.width,desktop.height));
+    view.reset(sf::FloatRect(0,0,6000,4000));
 }
