@@ -1,5 +1,6 @@
 #include "Creature.h"
 #include "utility.h"
+#include <iostream>
 
 Creature::Creature(const char *img, int x, int y, int depth, int height_, int width_)
 {
@@ -11,16 +12,18 @@ Creature::Creature(const char *img, int x, int y, int depth, int height_, int wi
     height = height_;
     width = width_;
 
-    xValue = desktop.height + height/2 + 1;
-    yValue = y;
+    xValue = x;
+    yValue = desktop.height;
 
-    xStand = x;
+    yStand = y;
 
-    sprite ->setPosition(xValue,y);
+    sprite ->setPosition(xValue,yValue);
 
+    AnimationState = intr;
 }
 
 void Creature::set_intro()
 {
-
+    yValue -=2;
+    sprite ->setPosition(xValue, yValue);
 }

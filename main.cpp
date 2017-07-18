@@ -8,7 +8,6 @@
 
 int main()
 {
-
     initializeUtility();
 
     ShapeSO sos;
