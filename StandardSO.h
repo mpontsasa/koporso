@@ -20,7 +20,7 @@ protected:
     sf::Time in_out_time;   //Time of full in/outro
     sf::Time in_out_start;   //Time of in/outro beginning
 
-    enum
+    enum enumname
     {
         lie, intr, stand, outr
     } AnimationState;

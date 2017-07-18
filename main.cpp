@@ -1,13 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include <string>
 #include "../koporso/ShapeSO.h"
 #include "../koporso/SimpleImage.h"
+#include "../koporso/Creature.h"
 #include "utility.h"
 #include "../koporso/Thing.h"
 
 int main()
 {
     ShapeSO sos;
+
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
+
+    Creature creature1("../koporso/Resources/Creature.png", 0, 0, 0);
 
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
@@ -15,7 +20,11 @@ int main()
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
+
     ScreenRoot::access().addStaticSo(&thing);
+
+    ScreenRoot::access().addStaticSo(&creature1);
+
 
 // Initialiseing the screen
     sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
