@@ -9,9 +9,8 @@ Creature::Creature(const char *img, int x, int y, int depth)
     sprite ->setTexture(*texture);
     sprite ->setPosition(x,y);
 
-    xValue=x;
-    yValue=y;
-    zValue=depth;
+    xStand = x;
+    yStand = y;
 }
 
 void Creature::set_intro()

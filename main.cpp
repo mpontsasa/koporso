@@ -8,6 +8,9 @@
 
 int main()
 {
+
+    initializeUtility();
+
     ShapeSO sos;
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
@@ -27,12 +30,7 @@ int main()
 
 
 // Initialiseing the screen
-    sf::VideoMode desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
-//Initialiseing the time
-    gameClock.restart();    // start the GameClock
-    sf::Time lastUpdate = sf::milliseconds(0);  // Initializes the last update to zero
-    const sf::Time updateTime = sf::milliseconds(50);   //Time between two
 
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
     {

@@ -15,7 +15,9 @@ public:
     void set_outro(){};   // Sets the object for drawing if outro
     void set_lie(){};   // Sets the object for drawing if lie
     void set_stand(){};   // Sets the object for drawing if outro
-
+protected:
+    int xStand; //x when stand
+    int yStand; //y when stand
 };
 
 #endif  //CREATURE_H
