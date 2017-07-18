@@ -15,7 +15,7 @@ int main()
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
-    Creature creature1("../koporso/Resources/Creature.png", 0, 0, 0);
+    Creature creature1("../koporso/Resources/Creature.png", 0, 0, 0, 319, 308);
 
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);

@@ -7,7 +7,7 @@
 class Creature : public StandardSO  // Living stuff(animals, characters)
 {
 public:
-    Creature(const char *img, int x, int y, int depth);
+    Creature(const char *img, int x, int y, int depth, int height_, int width_);
 
     void getEvent(sf::Event event_){}
 
@@ -17,7 +17,6 @@ public:
     void set_stand(){};   // Sets the object for drawing if outro
 protected:
     int xStand; //x when stand
-    int yStand; //y when stand
 };
 
 #endif  //CREATURE_H

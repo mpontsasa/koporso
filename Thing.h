@@ -10,7 +10,7 @@
 class Thing : public StandardSO
 {
 public:
-    Thing(char *img, int x, int y, int depth); //constructor: x and y for topleft corner
+    Thing(const char *img, int x, int y, int depth); //constructor: x and y for topleft corner
 
     void set_intro(){};   // Sets the object for drawing if intro
     void set_outro(){};   // Sets the object for drawing if outro

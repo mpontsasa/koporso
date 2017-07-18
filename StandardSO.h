@@ -27,6 +27,9 @@ protected:
 
     sf::Texture *texture;
     sf::Sprite *sprite;
+
+    int height;
+    int width;
 };
 
 #endif //STANDARDSO_H
