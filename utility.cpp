@@ -8,6 +8,7 @@ sf::VideoMode desktop;
 sf::Time lastUpdate;  // Initializes the last update to zero
 sf::Time updateTime = sf::milliseconds(50);   //Time between two
 
+sf::View view;
 
 void initializeUtility ()
 {

@@ -12,5 +12,7 @@ extern sf::Time updateTime;
 
 void initializeUtility ();
 
+extern sf::View view;
+
 
 #endif //UTILITY_H
