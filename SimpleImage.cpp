@@ -11,7 +11,7 @@ void SimpleImage::drawThis()
     s.setPosition(xValue,yValue);
 }
 
-SimpleImage::SimpleImage(char *img, int x, int y, int depth)
+SimpleImage::SimpleImage(const char *img, int x, int y, int depth)
 {
     t.loadFromFile(img);
     s.setTexture(t);
