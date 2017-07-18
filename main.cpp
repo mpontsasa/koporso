@@ -31,6 +31,8 @@ int main()
 // Initialiseing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
+    ScreenRoot::access().window->setView(view);
+
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
     {
         sf::Event event;
