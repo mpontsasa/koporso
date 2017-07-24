@@ -18,6 +18,10 @@ private:
 
     int height;
     int width;
+    bool directio; //0 right, 1 left
+
+    bool walking_right; // if right arrow is pressed
+    bool walking_left; // if left arrow is pressed
 };
 
 #endif // PROTAGONIST_H

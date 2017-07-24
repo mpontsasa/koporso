@@ -13,7 +13,7 @@ public:
 
     void set_intro();   // Sets the object for drawing if intro
     void set_outro(){};   // Sets the object for drawing if outro
-    void set_lie(){};   // Sets the object for drawing if lie
+    bool set_lie(){};   // Sets the object for drawing if lie
     void set_stand(){};   // Sets the object for drawing if outro
 protected:
     int yStand; //x when stand

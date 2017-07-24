@@ -45,26 +45,67 @@ int main()
                 {
                     switch(event.key.code)
                     {
-                        case sf::Keyboard::Escape:
+                        case sf::Keyboard::Escape :
                         {   ScreenRoot::access().window->close();
+                            break;
+                        }
+                        case sf::Keyboard::Right :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Left :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Up :
+                        {
+                            protagonist.getEvent(event);
                             break;
                         }
                         default:
                         {
                             ///fill
                         }
-                        ///more keycases (lower case, upper case...etc)
+                        ///more keycases (lower case, upper case...etc) /// HA-HA
                     }
 
                 break;
                 }
-
                 case sf::Event::MouseButtonPressed:
                 {
                     if(sos.hit(sf::Mouse::getPosition()))
                     {
                         sos.getEvent(event);
                     }
+                    break;
+                }
+                case sf::Event::KeyReleased:
+                {
+                    switch(event.key.code)
+                    {
+                        case sf::Keyboard::Escape:
+                        {   ScreenRoot::access().window->close();
+                            break;
+                        }
+                        case sf::Keyboard::Right :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Left :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        default:
+                        {
+                            ///fill
+                        }
+                        ///more keycases (lower case, upper case...etc) /// HA-HA
+                    }
+
                     break;
                 }
                 default:
@@ -78,10 +119,10 @@ int main()
 
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
-            lastUpdate = gameClock.getElapsedTime();
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();
             ScreenRoot::access().window->display();
+            lastUpdate = gameClock.getElapsedTime();
         }
 
     }

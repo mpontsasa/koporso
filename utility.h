@@ -16,4 +16,10 @@ void initializeUtility ();
 
 extern sf::View view;
 
+//Game data section
+
+extern float protagonistSpeed;
+
+
+
 #endif //UTILITY_H
