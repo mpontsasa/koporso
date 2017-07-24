@@ -13,17 +13,28 @@ Creature::Creature(const char *img, int x, int y, int depth, int height_, int wi
     width = width_;
 
     xValue = x;
-    yValue = desktop.height;
+    yValue = view.getSize().y;
 
     yStand = y;
 
     sprite ->setPosition(xValue,yValue);
 
     AnimationState = intr;
+
+    in_out_start = gameClock.getElapsedTime();
 }
 
 void Creature::set_intro()
 {
-    yValue -=2;
-    sprite ->setPosition(xValue, yValue);
+    if (gameClock.getElapsedTime() - in_out_start >= introTime)
+    {
+        yValue = yStand;
+        AnimationState = stand;
+        sprite ->setPosition(xValue, yValue);
+    }
+    else
+    {
+        yValue = view.getSize().y - ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (view.getSize().y - yStand) / introTime.asMilliseconds());
+        sprite ->setPosition(xValue, yValue);
+    }
 }

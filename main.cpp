@@ -5,6 +5,7 @@
 #include "../koporso/Creature.h"
 #include "utility.h"
 #include "../koporso/Thing.h"
+#include "../koporso/Protagonist.h"
 
 int main()
 {
@@ -14,17 +15,17 @@ int main()
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
-    Creature creature1("../koporso/Resources/Creature.png", 0, 0, 0, 319, 308);
+    Creature creature1("../koporso/Resources/Creature.png", 30, 500, 0, 319, 308);
 
+    Protagonist protagonist("../koporso/Resources/protagonist.png",100, 600, 400 ,10,10);
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,4);
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
-
     ScreenRoot::access().addStaticSo(&thing);
-
+    ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addStaticSo(&creature1);
 
 
