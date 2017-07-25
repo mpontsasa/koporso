@@ -3,6 +3,7 @@
 
 #include <SFML/System/Clock.hpp>
 #include <SFML/Graphics.hpp>
+#include "gameview.h"
 
 const sf::Time introTime = sf::milliseconds(2000);  // intro time in milliseconds
 
@@ -14,12 +15,11 @@ extern sf::Time updateTime;
 
 void initializeUtility ();
 
-extern sf::View view;
+extern GameView gameView;
 
 //Game data section
 
 extern float protagonistSpeed;
-
 
 
 #endif //UTILITY_H

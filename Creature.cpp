@@ -13,9 +13,8 @@ Creature::Creature(const char *img, int x, int y, int depth, int height_, int wi
     width = width_;
 
     xValue = x;
-    yValue = view.getSize().y;
+    yValue = gameView.view.getSize().y;
     zValue = depth;
-
     yStand = y;
 
     sprite ->setPosition(xValue,yValue);
@@ -35,7 +34,7 @@ void Creature::set_intro()
     }
     else
     {
-        yValue = view.getSize().y - ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (view.getSize().y - yStand) / introTime.asMilliseconds());
+        yValue = gameView.view.getSize().y - ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (gameView.view.getSize().y - yStand) / introTime.asMilliseconds());
         sprite ->setPosition(xValue, yValue);
     }
 }
@@ -50,7 +49,7 @@ void Creature::set_outro()
     }
     else
     {
-        yValue = view.getSize().y + ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (view.getSize().y - yStand) / introTime.asMilliseconds());
+        yValue = gameView.view.getSize().y + ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (gameView.view.getSize().y - yStand) / introTime.asMilliseconds());
         sprite ->setPosition(xValue, yValue);
     }
 

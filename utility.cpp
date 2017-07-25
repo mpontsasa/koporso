@@ -1,6 +1,6 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Graphics.hpp>
-
+#include "gameview.h"
 
 sf::Clock gameClock;
 sf::VideoMode desktop;
@@ -8,9 +8,9 @@ sf::VideoMode desktop;
 sf::Time lastUpdate;  // Initializes the last update to zero
 sf::Time updateTime = sf::milliseconds(50);   //Time between two
 
-sf::View view;
+GameView gameView(0, 0, 3000, 2000);
 
-float protagonistSpeed;
+float protagonistSpeed; //pixels / millisecond
 
 void initializeUtility ()
 {
@@ -18,6 +18,5 @@ void initializeUtility ()
 //Time initialization
     gameClock.restart();    // start the GameClock
     lastUpdate = sf::milliseconds(0);
-    view.reset(sf::FloatRect(0,0,3000,2000));
     protagonistSpeed = 1;   //pixels / millisecond
 }
