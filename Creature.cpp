@@ -14,6 +14,7 @@ Creature::Creature(const char *img, int x, int y, int depth, int height_, int wi
 
     xValue = x;
     yValue = view.getSize().y;
+    zValue = depth;
 
     yStand = y;
 
