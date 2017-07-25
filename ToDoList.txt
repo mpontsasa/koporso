@@ -6,4 +6,4 @@ view
 protagonist	
 	right arrow::
 	left arrow::
-Interactable list for click handling
+Interactable list for click handling::

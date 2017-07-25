@@ -3,7 +3,7 @@
 #include "Protagonist.h"
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int depth, int height_, int width_)
+Protagonist::Protagonist(const char *img, int x, int y, int z, int height_, int width_)
 {
     texture = new sf::Texture;
     sprite = new sf::Sprite;
@@ -15,6 +15,7 @@ Protagonist::Protagonist(const char *img, int x, int y, int depth, int height_, 
 
     xValue = x;
     yValue = y;
+    zValue = z;
 
     walking_right = 0;
     walking_left = 0;

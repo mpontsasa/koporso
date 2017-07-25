@@ -20,5 +20,4 @@ void initializeUtility ()
     lastUpdate = sf::milliseconds(0);
     view.reset(sf::FloatRect(0,0,3000,2000));
     protagonistSpeed = 1;   //pixels / millisecond
-
 }
