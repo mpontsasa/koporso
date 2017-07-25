@@ -125,6 +125,8 @@ int main()
             lastUpdate = gameClock.getElapsedTime();
         }
 
+        creature1.set_outro();
+
     }
 
     return 0;
