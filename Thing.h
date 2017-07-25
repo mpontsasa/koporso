@@ -14,7 +14,7 @@ public:
 
     void set_intro(){};   // Sets the object for drawing if intro
     void set_outro(){};   // Sets the object for drawing if outro
-    bool set_lie(){};   // Sets the object for drawing if lie
+    bool set_lie(){return false;};   // Sets the object for drawing if lie
     void set_stand(){};
     void getEvent(sf::Event event_){};
 };

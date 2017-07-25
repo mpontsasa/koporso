@@ -15,18 +15,18 @@ int main()
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
-    Creature creature1("../koporso/Resources/Creature.png", 30, 500, 0, 319, 308);
+    Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
 
-    Protagonist protagonist("../koporso/Resources/protagonist.png",100, 600, 400 ,10,10);
+    Protagonist protagonist("../koporso/Resources/protagonist.png",100, 600, 10 ,10,10);
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
-    SimpleImage img2("../koporso/Resources/lion.png",100,100,4);
+    SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
 
     ScreenRoot::access().addStaticSo(&img);
     ScreenRoot::access().addStaticSo(&img2);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addDinamicSo(&protagonist);
-    ScreenRoot::access().addStaticSo(&creature1);
+    ScreenRoot::access().addDinamicSo(&creature1);
 
 
 // Initialising the screen

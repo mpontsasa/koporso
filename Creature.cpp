@@ -38,3 +38,19 @@ void Creature::set_intro()
         sprite ->setPosition(xValue, yValue);
     }
 }
+
+void Creature::set_outro()
+{
+    if (gameClock.getElapsedTime() - in_out_start >= introTime)
+    {
+        yValue = yStand;
+        AnimationState = lie;
+        sprite ->setPosition(xValue, yValue);
+    }
+    else
+    {
+        yValue = view.getSize().y + ((gameClock.getElapsedTime() - in_out_start).asMilliseconds() * (view.getSize().y - yStand) / introTime.asMilliseconds());
+        sprite ->setPosition(xValue, yValue);
+    }
+
+}
