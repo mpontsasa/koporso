@@ -1,17 +1,14 @@
 #include <SFML/System/Vector2.hpp>
-#include <iostream>
 #include "Protagonist.h"
+#include "utility.h"
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int z, int height_, int width_)
+Protagonist::Protagonist(const char *img, int x, int y, int z)
 {
     texture = new sf::Texture;
     sprite = new sf::Sprite;
     texture ->loadFromFile(img);
     sprite ->setTexture(*texture);
-
-    height = height_;
-    width = width_;
 
     xValue = x;
     yValue = y;
@@ -28,13 +25,17 @@ void Protagonist::drawThis()
 {
     if(walking_left)
     {
-        xValue -= (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
+        int movement = (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
+        xValue -= movement;
         sprite ->setPosition(xValue, yValue);
+        gameView.followProtagonist(*this);
     }
     else if(walking_right)
     {
-        xValue += (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
+        int movement = (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
+        xValue += movement;
         sprite ->setPosition(xValue, yValue);
+        gameView.followProtagonist(*this);
     }
 
     ScreenRoot::access().window->draw(*sprite);

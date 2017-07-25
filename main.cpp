@@ -3,9 +3,10 @@
 #include "../koporso/ShapeSO.h"
 #include "../koporso/SimpleImage.h"
 #include "../koporso/Creature.h"
-#include "utility.h"
 #include "../koporso/Thing.h"
 #include "../koporso/Protagonist.h"
+#include "gameview.h"
+#include "utility.h"
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
 
     Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
 
-    Protagonist protagonist("../koporso/Resources/protagonist.png",100, 600, 10 ,10,10);
+    Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10);
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
@@ -32,7 +33,7 @@ int main()
 // Initialising the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
-    ScreenRoot::access().window->setView(view);
+    ScreenRoot::access().window->setView(gameView.view);
 
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
     {

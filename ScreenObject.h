@@ -15,6 +15,13 @@ public:
 
     void addStaticSo(ScreenObject *so_);
     void addDinamicSo(ScreenObject *so_);
+
+    int getXValue() const {return xValue;}
+    void setXValue(int xv_){xValue = xv_;}
+
+    int getYValue() const {return yValue;}
+    void setYValue(int yv_){yValue = yv_;}
+
     int getZValue() const {return zValue;}
     void setZValue(int zv_){zValue = zv_;}
 

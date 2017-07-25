@@ -2,17 +2,17 @@
 #define GAMEVIEW_H
 
 #include <SFML/Graphics.hpp>
+#include "Protagonist.h"
 
 class GameView
 {
-    public:
-        GameView();
+public:
+    GameView(int upperLeftX, int upperLeftY, int lowerRightX, int lowerRightY);
 
-        sf::View view;
+    void followProtagonist(Protagonist &prot);
 
-    protected:
-
-    private:
+    sf::View view;
+    int sizeOfViewCenter; //size of the part in which the protagonist can move without view scrolls
 };
 
 #endif // GAMEVIEW_H
