@@ -8,6 +8,9 @@
 class ScreenObject  // Everything in the screen
 {
 public:
+    ScreenObject(int x, int y, int z, int width, int height):xValue(x), yValue(y), zValue(z),height(height),width(width){}
+    ScreenObject(){}
+
     virtual void getEvent(sf::Event event_) = 0;    //Handles the event
     virtual bool hit(sf::Vector2i point) = 0;         //true if the object contains (x,y) point
     virtual void drawThis() = 0;    // Draws This Object
@@ -25,13 +28,16 @@ public:
     int getZValue() const {return zValue;}
     void setZValue(int zv_){zValue = zv_;}
 
-protected:
-    int xValue; //x coordinate !Compared to screen!
-    int yValue; //y coordinate !Compared to screen!
-    int zValue; //The value of depth (z coordinate) !Compared to parent! Only interesting if the object may move
+    int getWidth() const {return width;}
+    int getHeight() const {return height;}
 
-    int hight;  // full height
-    int width;  // full width
+protected:
+    int xValue; //x coordinate
+    int yValue; //y coordinate
+    int zValue; //The value of depth (z coordinate)
+
+    int height;
+    int width;
 
     std::list<ScreenObject*> dinamicObjectList;   //Sub-objects that may move in depth on the stage
     std::list<ScreenObject*> staticObjectList;    //Sub-objects that don't move in depth on the stage
@@ -53,13 +59,4 @@ private:
  //   ScreenRoot(){}
 
 };
-
-class FixedGround : public ScreenObject
-{
-public:
-    void getEvent(sf::Event event_);    //Handles the event
-    bool hit(sf::Vector2i point);         //true if the object contains (x,y) point
-    void drawThis() const;
-};
-
 #endif //SCREENOBJECT_H

@@ -7,6 +7,7 @@
 #include "../koporso/Protagonist.h"
 #include "gameview.h"
 #include "utility.h"
+#include "fixedground.h"
 
 int main()
 {
@@ -14,11 +15,18 @@ int main()
 
     ShapeSO sos;
 
+    FixedGround fg(0,0,0,3000,3000,3000);
+
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
     Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
 
-    Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10);
+    Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
+
+    if (fg.onTheGround(protagonist))
+        std::cout << "rajta";
+    else
+        std::cout << "\nnincs rajta";
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
@@ -30,7 +38,7 @@ int main()
     ScreenRoot::access().addDinamicSo(&creature1);
 
 
-// Initialising the screen
+// Initializing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
     ScreenRoot::access().window->setView(gameView.view);
@@ -61,6 +69,11 @@ int main()
                             break;
                         }
                         case sf::Keyboard::Up :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Down :
                         {
                             protagonist.getEvent(event);
                             break;
@@ -96,6 +109,16 @@ int main()
                             break;
                         }
                         case sf::Keyboard::Left :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Up :
+                        {
+                            protagonist.getEvent(event);
+                            break;
+                        }
+                        case sf::Keyboard::Down :
                         {
                             protagonist.getEvent(event);
                             break;
