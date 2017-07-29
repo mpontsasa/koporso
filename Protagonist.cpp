@@ -26,7 +26,6 @@ Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg):
 
     height = sprite ->getGlobalBounds().height;
     width = sprite ->getGlobalBounds().width;
-
 }
 
 void Protagonist::drawThis()
@@ -48,7 +47,7 @@ void Protagonist::drawThis()
         xValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            xValue = fixedground ->getXValue() + fixedground ->getWidth() + width / 2;    //move it to the edge of the fixed ground
+            xValue = fixedground ->getXValue() + fixedground ->getWidth() - width / 2;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -70,7 +69,7 @@ void Protagonist::drawThis()
         yValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            yValue = fixedground ->getYValue() + fixedground ->getHeight();    //move it to the edge of the fixed ground
+            yValue = fixedground ->getYValue() + fixedground ->getHeight() - height;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);

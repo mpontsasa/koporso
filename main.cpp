@@ -15,7 +15,7 @@ int main()
 
     ShapeSO sos;
 
-    FixedGround fg(10,10,0,3000,3000,3000);
+    FixedGround fg(100,100,0,3000,1800,3000);
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
