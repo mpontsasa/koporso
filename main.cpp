@@ -8,9 +8,12 @@
 #include "gameview.h"
 #include "utility.h"
 #include "fixedground.h"
+#include "../koporso/Animation.h"
 
 int main()
 {
+    std::cout<<conv(1234);
+
     initializeUtility();
 
     ShapeSO sos;
@@ -22,11 +25,6 @@ int main()
     Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
 
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
-
-    if (fg.onTheGround(protagonist))
-        std::cout << "rajta";
-    else
-        std::cout << "\nnincs rajta";
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
