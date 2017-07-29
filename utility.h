@@ -20,6 +20,6 @@ extern GameView gameView;
 //Game data section
 
 extern float protagonistSpeed;
-
+extern float depthPerHeight;
 
 #endif //UTILITY_H

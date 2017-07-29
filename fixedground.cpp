@@ -1,8 +1,17 @@
 #include "fixedground.h"
+#include "utility.h"
 #include <iostream>
 
-FixedGround::FixedGround(int x, int y, int z, int width, int height, int depth): ScreenObject(x,y,z,width,height), depth(depth)
-{}
+FixedGround::FixedGround(int x, int y, int z, int width, int height, const char img[]): ScreenObject(x,y,z,width,height), depth(height * depthPerHeight)
+{
+    texture = new sf::Texture;
+    sprite = new sf::Sprite;
+
+    texture ->loadFromFile(img);
+    sprite ->setTexture(*texture);
+
+    sprite ->setPosition(xValue,yValue);
+}
 
 bool FixedGround::onTheGround (ScreenObject &so)   // so: the screen object, width: the width of the screen object
 {

@@ -15,7 +15,7 @@ int main()
 
     ShapeSO sos;
 
-    FixedGround fg(100,100,0,3000,1800,3000);
+    FixedGround fg(100,100,0,1200,918, "../koporso/Resources/fixedGround.jpg");
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
@@ -27,6 +27,7 @@ int main()
     SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
 
     ScreenRoot::access().addStaticSo(&img);
+    ScreenRoot::access().addStaticSo(&fg);
     ScreenRoot::access().addStaticSo(&img2);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addDinamicSo(&protagonist);

@@ -54,8 +54,9 @@ void Protagonist::drawThis()
     }
     else if(walking_back)
     {
-        int movement = (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
-        yValue -= movement;
+        int movement = (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed / depthPerHeight;
+        yValue -= movement/ depthPerHeight;
+        zValue -= movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
             yValue = fixedground ->getYValue() - height;    //move it to the edge of the fixed ground
@@ -66,7 +67,8 @@ void Protagonist::drawThis()
     else if(walking_forth)
     {
         int movement = (gameClock.getElapsedTime() - lastUpdate).asMilliseconds() * protagonistSpeed;
-        yValue += movement;
+        yValue += movement / depthPerHeight;
+        zValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
             yValue = fixedground ->getYValue() + fixedground ->getHeight() - height;    //move it to the edge of the fixed ground

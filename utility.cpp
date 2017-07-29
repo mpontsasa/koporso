@@ -12,6 +12,8 @@ GameView gameView(0, 0, 3000, 2000);
 
 float protagonistSpeed; //pixels / millisecond
 
+float depthPerHeight = 2;
+
 void initializeUtility ()
 {
     desktop = sf::VideoMode::getDesktopMode(); //desktop resolution
