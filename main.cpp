@@ -8,9 +8,12 @@
 #include "gameview.h"
 #include "utility.h"
 #include "fixedground.h"
+#include "../koporso/Animation.h"
 
 int main()
 {
+    std::cout<<conv(1234);
+
     initializeUtility();
 
     ShapeSO sos;
