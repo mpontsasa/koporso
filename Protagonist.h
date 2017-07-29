@@ -3,17 +3,15 @@
 
 #include <SFML/System/Vector2.hpp>
 #include "ScreenObject.h"
+#include "fixedground.h"
 
 class Protagonist : public ScreenObject
 {
 public:
-    Protagonist(const char *img, int x, int y, int z);
+    Protagonist(const char *img, int x, int y, int z, FixedGround *fg);
     void getEvent(sf::Event event);
     bool hit(sf::Vector2i point){return false;}
     void drawThis();
-
-    int getHeight() const {return sprite ->getGlobalBounds().height;}
-    int getWidth() const {return sprite ->getGlobalBounds().width;}
 
 private:
 
@@ -24,6 +22,10 @@ private:
 
     bool walking_right; // if right arrow is pressed
     bool walking_left; // if left arrow is pressed
+    bool walking_back; // if up arrow is pressed
+    bool walking_forth; // if down arrow is pressed
+
+    FixedGround *fixedground;
 };
 
 #endif // PROTAGONIST_H
