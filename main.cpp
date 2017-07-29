@@ -15,18 +15,13 @@ int main()
 
     ShapeSO sos;
 
-    FixedGround fg(0,0,0,3000,3000,3000);
+    FixedGround fg(10,10,0,3000,3000,3000);
 
     Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
 
     Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
 
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
-
-    if (fg.onTheGround(protagonist))
-        std::cout << "rajta";
-    else
-        std::cout << "\nnincs rajta";
 
     SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
@@ -148,8 +143,6 @@ int main()
             ScreenRoot::access().window->display();
             lastUpdate = gameClock.getElapsedTime();
         }
-
-        creature1.set_outro();
 
     }
 

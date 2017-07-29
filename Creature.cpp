@@ -29,7 +29,7 @@ void Creature::set_intro()
     if (gameClock.getElapsedTime() - in_out_start >= introTime)
     {
         yValue = yStand;
-        AnimationState = outr;
+        AnimationState = stand;
         sprite ->setPosition(xValue, yValue);
     }
     else
@@ -41,6 +41,7 @@ void Creature::set_intro()
 
 void Creature::set_outro()
 {
+    std::cout << "yay";
     if (gameClock.getElapsedTime() - in_out_start >= introTime)
     {
         yValue = yStand;

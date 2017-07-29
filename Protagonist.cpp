@@ -37,7 +37,7 @@ void Protagonist::drawThis()
         xValue -= movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            xValue = fixedground -> getXValue();    //move it to the edge of the fixed ground
+            xValue = fixedground -> getXValue() - width / 2;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -48,7 +48,7 @@ void Protagonist::drawThis()
         xValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            xValue = fixedground ->getXValue() + fixedground ->getWidth() - width;    //move it to the edge of the fixed ground
+            xValue = fixedground ->getXValue() + fixedground ->getWidth() + width / 2;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -59,7 +59,7 @@ void Protagonist::drawThis()
         yValue -= movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            yValue = fixedground ->getYValue();    //move it to the edge of the fixed ground
+            yValue = fixedground ->getYValue() - height;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -70,7 +70,7 @@ void Protagonist::drawThis()
         yValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            yValue = fixedground ->getYValue() + fixedground ->getWidth();    //move it to the edge of the fixed ground
+            yValue = fixedground ->getYValue() + fixedground ->getHeight();    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
