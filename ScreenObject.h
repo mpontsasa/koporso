@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <list>
+#include "Animation.h"
 
 class ScreenObject  // Everything in the screen
 {

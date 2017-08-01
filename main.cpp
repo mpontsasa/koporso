@@ -12,11 +12,11 @@
 
 int main()
 {
-    std::cout<<conv(1234);
-
     initializeUtility();
 
     ShapeSO sos;
+
+    Animation stickman("../koporso/Resources/Stickman",2,10,5);
 
     FixedGround fg(100,100,0,1200,918, "../koporso/Resources/fixedGround.jpg");
 
@@ -26,15 +26,15 @@ int main()
 
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
 
-    SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
-    SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
-
-    ScreenRoot::access().addStaticSo(&img);
+    ///SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
+    ///SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
+    ///ScreenRoot::access().addStaticSo(&img);
+    ///ScreenRoot::access().addStaticSo(&img2);
     ScreenRoot::access().addStaticSo(&fg);
-    ScreenRoot::access().addStaticSo(&img2);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addDinamicSo(&creature1);
+    //ScreenRoot::access().addStaticSo(stickman.get_current_frame());
 
 
 // Initializing the screen

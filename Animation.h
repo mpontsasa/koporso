@@ -4,17 +4,25 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "SimpleImage.h"
 
 class Animation
 {
     public:
-        Animation(const std::string p, int frame_nr, float length);
+        Animation(const std::string p, int frame_nr, float length, int depth);
+        void play_animation(sf::Sprite *frames, int nr_f, float interval);
+        void stop_animation();
+        SimpleImage *get_current_frame();
+        int zValue;
 
     private:
         std::string name;
         int f_nr;
         float length;
         sf::Sprite *frames;
+        SimpleImage *current_frame;
+
+
 
 };
 
