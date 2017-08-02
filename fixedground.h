@@ -16,6 +16,8 @@ public:
     void getEvent(sf::Event event){}
     void drawThis(){ScreenRoot::access().window->draw(*sprite);}
     bool hit(sf::Vector2i){return false;}
+
+    int getDepth() const {return depth;}
 protected:
 
     std::vector<FixedGround> relatedGrounds;
