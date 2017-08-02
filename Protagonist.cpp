@@ -36,7 +36,7 @@ void Protagonist::drawThis()
         xValue -= movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            xValue = fixedground -> getXValue() - width / 2;    //move it to the edge of the fixed ground
+            xValue = fixedground -> getXValue() - width / 2 + 1;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -47,7 +47,7 @@ void Protagonist::drawThis()
         xValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            xValue = fixedground ->getXValue() + fixedground ->getWidth() - width / 2;    //move it to the edge of the fixed ground
+            xValue = fixedground ->getXValue() + fixedground ->getWidth() - width / 2 - 1;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -59,7 +59,7 @@ void Protagonist::drawThis()
         zValue -= movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            yValue = fixedground ->getYValue() - height;    //move it to the edge of the fixed ground
+            yValue = fixedground ->getYValue() - height + 1;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -71,7 +71,7 @@ void Protagonist::drawThis()
         zValue += movement;
         if(!(fixedground ->onTheGround(*this))) //if moves out of the fixed ground
         {
-            yValue = fixedground ->getYValue() + fixedground ->getHeight() - height;    //move it to the edge of the fixed ground
+            yValue = fixedground ->getYValue() + fixedground ->getHeight() - height - 1;    //move it to the edge of the fixed ground
         }
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);

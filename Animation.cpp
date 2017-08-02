@@ -31,9 +31,9 @@ Animation::Animation(const std::string p, int frame_nr, float length, int depth)
     }
 }
 
-SimpleImage *Animation::get_current_frame()
+/*SimpleImage *Animation::get_current_frame()
     {return current_frame;
-    }
+    }*/
 
 void Animation::play_animation (sf::Sprite *frames, int nr_f, float interval)
     {sf::Time init=gameClock.getElapsedTime();
@@ -43,7 +43,7 @@ void Animation::play_animation (sf::Sprite *frames, int nr_f, float interval)
     if((gameClock.getElapsedTime()-init).asMilliseconds() > interval)
         {current_frame_index = (int)((gameClock.getElapsedTime()-init).asMilliseconds()/interval)%nr_f;
 
-        current_frame->set_sprite(frames+current_frame_index);
+//        current_frame->set_sprite(frames+current_frame_index);
         }
     }
 

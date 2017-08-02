@@ -23,5 +23,6 @@ SimpleImage::SimpleImage(const char *img, int x, int y, int depth)
 }
 
 void SimpleImage::set_sprite(sf::Sprite *s)
-    {this.s=s;
-    }
+{
+    this->s=s;
+}
