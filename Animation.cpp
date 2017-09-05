@@ -3,8 +3,9 @@
 #include <string>
 #include "utility.h"
 #include "SimpleImage.h"
+#include <iostream>
 
-std::string digits[10]={"0","1","2","3","4","5","6","7","8","9"};
+std::string digits[10]= {"0","1","2","3","4","5","6","7","8","9"};
 
 std::string conv(int x)
 {
@@ -15,44 +16,45 @@ std::string conv(int x)
 
 }
 
-Animation::Animation(const std::string p, int frame_nr, float length, int depth):length(length)
+Animation::Animation(const std::string p, sf::Sprite **spr, int frame_nr, float length, int depth):length(length), spr(spr)
 {
     name=p;
     f_nr=frame_nr;
-    frames = new sf::Texture[f_nr];
-
-    sf::Texture *t=new sf::Texture;
+    frames = new sf::Sprite[f_nr];
+    textures = new sf::Texture[f_nr];
     //current_frame->set_sprite(frames);
 
-    for(int i=1; i<=f_nr; i++)
+    for(int i=0; i<f_nr; i++)
     {
-        t ->loadFromFile(name + conv(i) + ".png");
-        *(frames + i) = *t;
+        (textures + i) ->loadFromFile(name + conv(i+1) + ".png");
+        (frames + i ) -> setTexture(textures[i]);
     }
+
+    //*spr=frames[1];
 }
 
 /*SimpleImage *Animation::get_current_frame()
     {return current_frame;
     }*/
 
-void Animation::play_animation (int nr_f, float interval)
-    {sf::Time init=gameClock.getElapsedTime();
-
+void Animation::play_animation ()
+{
+    init=gameClock.getElapsedTime();
     run_animation=true;
+}
 
+void Animation::update_animation(sf::Time interval)
+{
+    int asd;
 
-    sf::Sprite *current_frame = new sf::Sprite;
-    int current_frame_index=0;
+    asd=((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
 
+    *spr = frames + asd;
 
-    if((gameClock.getElapsedTime()-init).asMilliseconds() > interval && run_animation)
-        {current_frame_index = (int)((gameClock.getElapsedTime()-init).asMilliseconds()/interval)%nr_f;
-
-        current_frame->setTexture(*(frames+current_frame_index));
-        }
-
-    }
+    (*spr)->setPosition(100,100);
+}
 
 void Animation::stop_animation()
-    {run_animation=false;
-    }
+{
+    run_animation=false;
+}

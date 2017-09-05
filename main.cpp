@@ -16,9 +16,12 @@ int main()
 {
     initializeUtility();
 
-    ShapeSO sos;
+    TestAnimation *x=new TestAnimation();
 
-    Animation stickman("../koporso/Resources/Stickman",2,10,5);
+    x->a->play_animation();
+    x->a->update_animation(sf::milliseconds(300));
+
+    ShapeSO sos;
 
     FixedGround fg(-500,1000,0,4344,704, "../koporso/Resources/fixedGround.jpg");
 
@@ -33,10 +36,10 @@ int main()
     ///ScreenRoot::access().addStaticSo(&img);
     ///ScreenRoot::access().addStaticSo(&img2);
     ScreenRoot::access().addStaticSo(&fg);
+    ScreenRoot::access().addStaticSo(x);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addDinamicSo(&creature1);
-    //ScreenRoot::access().addStaticSo(stickman.get_current_frame());
 
 
 // Initializing the screen
@@ -145,10 +148,13 @@ int main()
 
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
+
+            x->a->update_animation(sf::milliseconds(300));
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();
             ScreenRoot::access().window->display();
             lastUpdate = gameClock.getElapsedTime();
+
         }
 
     }

@@ -1,13 +1,13 @@
 #include "Animation.h"
 
-class TestAnimation
+class TestAnimation : public Thing
 {
-    TestAnimation();
 
 public:
     Animation *a;
+    TestAnimation();
 };
 
-TestAnimation::TestAnimation()
-    {a=new Animation("Stickman",2,2,10);
+TestAnimation::TestAnimation() : Thing("../koporso/Resources/Stickman1.png",100,100,20)
+    {a=new Animation("../koporso/Resources/Stickman",&sprite,2,1000,10);
     }

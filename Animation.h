@@ -9,17 +9,22 @@
 class Animation
 {
     public:
-        Animation(const std::string p, int frame_nr, float length, int depth);
-        void play_animation(int nr_f, float interval);
+        Animation(const std::string p, sf::Sprite **spr, int frame_nr, float length, int depth);
+        void play_animation();
+        void update_animation(sf::Time interval);
         void stop_animation();
         int zValue;
+        sf::Texture *textures;
+        sf::Sprite *frames;
 
     private:
         std::string name;
         int f_nr;
         float length;
-        sf::Texture *frames;
+        //sf::Sprite *frames;
         bool run_animation;
+        sf::Sprite **spr;
+        sf::Time init;
 //        SimpleImage *current_frame;
 
 
