@@ -9,6 +9,7 @@
 #include "utility.h"
 #include "fixedground.h"
 #include "../koporso/Animation.h"
+#include "../koporso/TestingAnimation.h"
 
 int main()
 {

@@ -19,7 +19,7 @@ Animation::Animation(const std::string p, int frame_nr, float length, int depth)
 {
     name=p;
     f_nr=frame_nr;
-    frames = new sf::Sprite[f_nr];
+    frames = new sf::Texture[f_nr];
 
     sf::Texture *t=new sf::Texture;
     //current_frame->set_sprite(frames);
@@ -27,7 +27,7 @@ Animation::Animation(const std::string p, int frame_nr, float length, int depth)
     for(int i=1; i<=f_nr; i++)
     {
         t ->loadFromFile(name + conv(i) + ".png");
-        (frames + i) ->setTexture(*t);
+        *(frames + i) = *t;
     }
 }
 
@@ -35,15 +35,24 @@ Animation::Animation(const std::string p, int frame_nr, float length, int depth)
     {return current_frame;
     }*/
 
-void Animation::play_animation (sf::Sprite *frames, int nr_f, float interval)
+void Animation::play_animation (int nr_f, float interval)
     {sf::Time init=gameClock.getElapsedTime();
 
+    run_animation=true;
+
+
+    sf::Sprite *current_frame = new sf::Sprite;
     int current_frame_index=0;
 
-    if((gameClock.getElapsedTime()-init).asMilliseconds() > interval)
+
+    if((gameClock.getElapsedTime()-init).asMilliseconds() > interval && run_animation)
         {current_frame_index = (int)((gameClock.getElapsedTime()-init).asMilliseconds()/interval)%nr_f;
 
-//        current_frame->set_sprite(frames+current_frame_index);
+        current_frame->setTexture(*(frames+current_frame_index));
         }
+
     }
 
+void Animation::stop_animation()
+    {run_animation=false;
+    }

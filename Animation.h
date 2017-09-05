@@ -10,7 +10,7 @@ class Animation
 {
     public:
         Animation(const std::string p, int frame_nr, float length, int depth);
-        void play_animation(sf::Sprite *frames, int nr_f, float interval);
+        void play_animation(int nr_f, float interval);
         void stop_animation();
         int zValue;
 
@@ -18,7 +18,8 @@ class Animation
         std::string name;
         int f_nr;
         float length;
-        sf::Sprite *frames;
+        sf::Texture *frames;
+        bool run_animation;
 //        SimpleImage *current_frame;
 
 
