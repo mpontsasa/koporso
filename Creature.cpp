@@ -2,7 +2,7 @@
 #include "utility.h"
 #include <iostream>
 
-Creature::Creature(const char *img, int x, int y, int depth, int height_, int width_)
+Creature::Creature(const char *img, int x, int y, int z, int height_, int width_)
 {
     texture = new sf::Texture;
     sprite = new sf::Sprite;
@@ -14,13 +14,13 @@ Creature::Creature(const char *img, int x, int y, int depth, int height_, int wi
 
     xValue = x;
     yValue = gameView.view.getSize().y;
-    zValue = depth;
+    zValue = z;
     yStand = y;
     yLie = gameView.view.getSize().y;
 
     sprite ->setPosition(xValue,yValue);
 
-    AnimationState = intr;
+    AnimationState = lie;
 
     in_out_start = gameClock.getElapsedTime();
 }
@@ -30,8 +30,7 @@ void Creature::set_intro()
     if (gameClock.getElapsedTime() - in_out_start >= introTime)
     {
         yValue = yStand;
-        AnimationState = outr;
-        in_out_start=gameClock.getElapsedTime();
+        AnimationState = stand;
         sprite ->setPosition(xValue, yValue);
     }
     else
@@ -46,8 +45,7 @@ void Creature::set_outro()
     if (gameClock.getElapsedTime() - in_out_start >= introTime)
     {
         yValue = gameView.view.getSize().y;
-        AnimationState = intr;
-        in_out_start=gameClock.getElapsedTime();
+        AnimationState = lie;
         sprite ->setPosition(xValue, yValue);
     }
     else

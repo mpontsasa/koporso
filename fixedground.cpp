@@ -2,12 +2,15 @@
 #include "utility.h"
 #include <iostream>
 
-FixedGround::FixedGround(int x, int y, int z, int width, int height, const char img[]): ScreenObject(x,y,z,width,height), depth(height * depthPerHeight)
+FixedGround::FixedGround(int x, int y, int z, int width, int height, const char img[]): ScreenObject(x,y,z,width,height, height * depthPerHeight)
 {
     texture = new sf::Texture;
     sprite = new sf::Sprite;
 
     texture ->loadFromFile(img);
+    //texture ->setRepeated(true);
+    //sprite ->setScale(sf::Vector2f(width, height));
+
     sprite ->setTexture(*texture);
 
     sprite ->setPosition(xValue,yValue);

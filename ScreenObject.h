@@ -9,8 +9,9 @@
 class ScreenObject  // Everything in the screen
 {
 public:
-    ScreenObject(int x, int y, int z, int width, int height):xValue(x), yValue(y), zValue(z),height(height),width(width){}
+    ScreenObject(int x, int y, int z, int width, int height, int depth = 0):xValue(x), yValue(y), zValue(z),height(height),width(width), depth(depth){}
     ScreenObject(){}
+
 
     virtual void getEvent(sf::Event event_) = 0;    //Handles the event
     virtual bool hit(sf::Vector2i point) = 0;         //true if the object contains (x,y) point
@@ -19,6 +20,7 @@ public:
 
     void addStaticSo(ScreenObject *so_);
     void addDinamicSo(ScreenObject *so_);
+    void addGroundSo(ScreenObject *so_);
 
     int getXValue() const {return xValue;}
     void setXValue(int xv_){xValue = xv_;}
@@ -32,6 +34,11 @@ public:
     int getWidth() const {return width;}
     int getHeight() const {return height;}
 
+    int getBottom() const {return yValue + height;}
+    int getTop() const {return yValue;}
+    int getFront() const {return zValue + depth;}
+    int getBack() const {return zValue;}
+
 protected:
     int xValue; //x coordinate
     int yValue; //y coordinate
@@ -39,9 +46,11 @@ protected:
 
     int height;
     int width;
+    int depth;
 
     std::list<ScreenObject*> dinamicObjectList;   //Sub-objects that may move in depth on the stage
     std::list<ScreenObject*> staticObjectList;    //Sub-objects that don't move in depth on the stage
+    std::list<ScreenObject*> groundObjectList;    //Sub-objects have depth
 };
 
 
