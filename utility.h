@@ -6,7 +6,8 @@
 #include "gameview.h"
 #include <string>
 
-const sf::Time introTime = sf::milliseconds(2000);  // intro time in milliseconds
+const sf::Time introTime = sf::milliseconds(300);  // intro time in milliseconds
+const float gravity = 10;   //pixels/sec
 
 extern sf::Clock gameClock;
 extern sf::VideoMode desktop;
@@ -24,5 +25,8 @@ std::string conv(int x);
 
 extern float protagonistSpeed;
 extern float depthPerHeight;
+
+extern int introTriggerDistance;
+extern int outroTriggerDistance;
 
 #endif //UTILITY_H

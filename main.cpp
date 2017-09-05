@@ -8,6 +8,7 @@
 #include "gameview.h"
 #include "utility.h"
 #include "fixedground.h"
+#include "scene.h"
 #include "../koporso/Animation.h"
 
 int main()
@@ -18,11 +19,11 @@ int main()
 
     Animation stickman("../koporso/Resources/Stickman",2,10,5);
 
-    FixedGround fg(100,100,0,1200,918, "../koporso/Resources/fixedGround.jpg");
+    FixedGround fg(-500,1000,0,4344,704, "../koporso/Resources/fixedGround.jpg");
 
-    Thing thing("../koporso/Resources/The_Thing.png",0,0,3);
+    Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
 
-    Creature creature1("../koporso/Resources/Creature.png", 30, 500, 2, 319, 308);
+    Creature creature1("../koporso/Resources/Creature.png", 30, 800, 2, 319, 308);
 
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
 
@@ -54,7 +55,8 @@ int main()
                     switch(event.key.code)
                     {
                         case sf::Keyboard::Escape :
-                        {   ScreenRoot::access().window->close();
+                        {
+                            ScreenRoot::access().window->close();
                             break;
                         }
                         case sf::Keyboard::Right :

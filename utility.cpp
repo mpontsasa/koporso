@@ -11,8 +11,9 @@ sf::Time updateTime = sf::milliseconds(50);   //Time between two
 GameView gameView(0, 0, 3000, 2000);
 
 float protagonistSpeed; //pixels / millisecond
-
 float depthPerHeight = 2;
+int introTriggerDistance = 300;
+int outroTriggerDistance = 250;
 
 void initializeUtility ()
 {

@@ -13,6 +13,8 @@ public:
     bool hit(sf::Vector2i point){return false;}
     void drawThis();
 
+    void startJump();
+
 private:
 
     sf::Texture *texture;
@@ -26,6 +28,10 @@ private:
     bool walking_forth; // if down arrow is pressed
 
     FixedGround *fixedground;
+
+    sf::Time jumpStart;
+    float jumpVelocity;
+
 };
 
 #endif // PROTAGONIST_H

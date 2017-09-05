@@ -146,3 +146,9 @@ void Protagonist::getEvent(sf::Event event)
         break;
     }
 }
+
+void Protagonist::startJump()
+{
+    jumpStart = gameClock.getElapsedTime();
+    ///not finished yet
+}

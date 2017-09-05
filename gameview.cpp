@@ -4,7 +4,7 @@
 
 GameView::GameView(int upperLeftX, int upperLeftY, int lowerRightX, int lowerRightY)
 {
-    sizeOfViewCenter = 1200;
+    sizeOfViewCenter = 1000;
     view.reset(sf::FloatRect(upperLeftX, upperLeftY, lowerRightX, lowerRightY));
 }
 

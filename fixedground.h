@@ -22,7 +22,6 @@ protected:
 
     std::vector<FixedGround> relatedGrounds;
 
-    int depth;  // Depth of the ground
     sf::Texture *texture;
     sf::Sprite *sprite;
 

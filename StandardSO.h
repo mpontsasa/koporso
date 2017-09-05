@@ -14,8 +14,8 @@ protected:
 
     virtual void set_intro() = 0;   // Sets the object for drawing if intro
     virtual void set_outro() = 0;   // Sets the object for drawing if outro
-    virtual bool set_lie() = 0;   // Sets the object for drawing if lie
-    virtual void set_stand() = 0;   // Sets the object for drawing if outro
+    virtual bool set_lie();   // Sets the object for drawing if lie
+    virtual void set_stand();   // Sets the object for drawing if outro
 
     sf::Time in_out_time;   //Time of full in/outro
     sf::Time in_out_start;   //Time of in/outro beginning
