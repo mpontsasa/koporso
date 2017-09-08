@@ -10,6 +10,9 @@ class StandardSO : public ScreenObject
     void drawThis();
     bool hit(sf::Vector2i point){return 1;} ///test
 
+    int rightTriggerPoint(){return getRight() - triggerDistance;}
+    int leftTriggerPoint(){return getLeft() + triggerDistance;}
+
 protected:
 
     virtual void set_intro() = 0;   // Sets the object for drawing if intro

@@ -38,6 +38,7 @@ void Protagonist::drawThis()
         {
             xValue = fixedground -> getXValue() - width / 2 + 1;    //move it to the edge of the fixed ground
         }
+
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }

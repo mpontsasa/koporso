@@ -9,5 +9,6 @@ public:
 };
 
 TestAnimation::TestAnimation() : Thing("../koporso/Resources/Stickman1.png",100,100,20)
-    {a=new Animation("../koporso/Resources/Stickman",&sprite,2,1000,10);
-    }
+{
+    a=new Animation("../koporso/Resources/Stickman",&sprite,2,sf::milliseconds(1000));
+}

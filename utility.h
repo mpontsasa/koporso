@@ -26,7 +26,9 @@ std::string conv(int x);
 extern float protagonistSpeed;
 extern float depthPerHeight;
 
-extern int introTriggerDistance;
-extern int outroTriggerDistance;
+extern int triggerDistance;
 
+int getViewRightBorder();
+int getViewLeftBorder();
+bool xInView (int x);
 #endif //UTILITY_H

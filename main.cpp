@@ -19,13 +19,14 @@ int main()
     TestAnimation *x=new TestAnimation();
 
     x->a->play_animation();
-    x->a->update_animation(sf::milliseconds(300));
+    x->a->update_animation();
 
     ShapeSO sos;
 
-    FixedGround fg(-500,1000,0,4344,704, "../koporso/Resources/fixedGround.jpg");
+    FixedGround fg(-5000,1000,0,10880,696, "../koporso/Resources/fixedGround.jpg");
 
-    Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
+    //Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
+    Creature thing("../koporso/Resources/The_Thing.png", 0, 0, -1000, 1977, 1939);
 
     Creature creature1("../koporso/Resources/Creature.png", 30, 800, 2, 319, 308);
 
@@ -149,7 +150,7 @@ int main()
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
 
-            x->a->update_animation(sf::milliseconds(300));
+            x->a->update_animation();
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();
             ScreenRoot::access().window->display();

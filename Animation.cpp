@@ -16,45 +16,54 @@ std::string conv(int x)
 
 }
 
-Animation::Animation(const std::string p, sf::Sprite **spr, int frame_nr, float length, int depth):length(length), spr(spr)
+Animation::Animation(const std::string name_, sf::Sprite **spr, int frame_nr, sf::Time length, int x, int y, bool flippable):length(length), spr(spr)
 {
-    name=p;
+    name=name_;
     f_nr=frame_nr;
     frames = new sf::Sprite[f_nr];
     textures = new sf::Texture[f_nr];
-    //current_frame->set_sprite(frames);
+    interval = length/static_cast<float>(frame_nr);
 
     for(int i=0; i<f_nr; i++)
     {
         (textures + i) ->loadFromFile(name + conv(i+1) + ".png");
         (frames + i ) -> setTexture(textures[i]);
+        (frames + i ) ->setPosition(x, y);
     }
 
-    //*spr=frames[1];
+    if(flippable)
+    {
+        flipped=new bool[f_nr];
+
+        for(int i=0; i<f_nr; i++)
+            flipped[i]=0;   //0=right, 1=left
+    }
+    else
+        flipped=NULL;
 }
 
-/*SimpleImage *Animation::get_current_frame()
-    {return current_frame;
-    }*/
+Animation::~Animation()
+{
+    delete[] frames;
+    delete[] textures;
+}
 
 void Animation::play_animation ()
 {
     init=gameClock.getElapsedTime();
-    run_animation=true;
 }
 
-void Animation::update_animation(sf::Time interval)
+void Animation::update_animation()
 {
-    int asd;
-
-    asd=((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
-
-    *spr = frames + asd;
-
-    (*spr)->setPosition(100,100);
+    *spr = frames + ((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
 }
 
-void Animation::stop_animation()
+void Animation::update_animation(bool direction)    //direction: 0=right, 1=left
 {
-    run_animation=false;
+    int current_frame_index=((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
+
+    *spr = frames + current_frame_index;
+
+    if(direction != flipped[current_frame_index])
+        (*spr)->setTextureRect(sf::IntRect(width, 0, -width, height))
 }

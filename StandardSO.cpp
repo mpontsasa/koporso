@@ -1,5 +1,5 @@
 #include "../koporso/StandardSO.h"
-
+#include <iostream>
 void StandardSO::drawThis()
 {
     switch (AnimationState)
@@ -24,22 +24,39 @@ void StandardSO::drawThis()
 
 bool StandardSO::set_lie()
 {
-    if ((xValue + introTriggerDistance < gameView.view.getCenter().x + gameView.view.getSize().x / 2 && xValue + introTriggerDistance > gameView.view.getCenter().x - gameView.view.getSize().x / 2)    //on the screen from right
+    /*if ((xValue + introTriggerDistance < gameView.view.getCenter().x + gameView.view.getSize().x / 2 && xValue + introTriggerDistance > gameView.view.getCenter().x - gameView.view.getSize().x / 2)    //on the screen from right
         || (xValue + width - introTriggerDistance < gameView.view.getCenter().x + gameView.view.getSize().x / 2 && xValue + width - introTriggerDistance > gameView.view.getCenter().x - gameView.view.getSize().x / 2))    //on the screen from left
     {
         in_out_start = gameClock.getElapsedTime();    // start the animation timer for intro
         AnimationState = intr;  //  start the intro
         return 0;   //not lying anymore
     }
-    return 1;   //still lying
+    return 1;   //still lying*/
+    std::cout << getViewLeftBorder() <<'\n';
+    if (xInView(leftTriggerPoint()) && rightTriggerPoint() > getViewLeftBorder()
+        || xInView(rightTriggerPoint()) && leftTriggerPoint() < getViewRightBorder())
+    {
+        in_out_start = gameClock.getElapsedTime();    // start the animation timer for intro
+        AnimationState = intr;  //  start the intro
+        return 0;   //not lying anymore
+
+    }
+    return 1;   //still lying*/
+
 }
 
 void StandardSO::set_stand()
 {
-    if (xValue + width - outroTriggerDistance < gameView.view.getCenter().x - gameView.view.getSize().x / 2 || xValue + introTriggerDistance > gameView.view.getCenter().x + gameView.view.getSize().x / 2)   //out of the screen
+    /*if (xValue + width - outroTriggerDistance < gameView.view.getCenter().x - gameView.view.getSize().x / 2 || xValue + introTriggerDistance > gameView.view.getCenter().x + gameView.view.getSize().x / 2)   //out of the screen
+    {
+        in_out_start = gameClock.getElapsedTime();    // start the animation timer for outro
+        AnimationState = outr;  //  start the outro
+    }*/
+    if(rightTriggerPoint() < getViewLeftBorder() || leftTriggerPoint() > getViewRightBorder())
     {
         in_out_start = gameClock.getElapsedTime();    // start the animation timer for outro
         AnimationState = outr;  //  start the outro
     }
+
 }
 

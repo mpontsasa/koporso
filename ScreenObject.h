@@ -38,6 +38,8 @@ public:
     int getTop() const {return yValue;}
     int getFront() const {return zValue + depth;}
     int getBack() const {return zValue;}
+    int getRight() const {return xValue + width;}
+    int getLeft() const {return xValue;}
 
 protected:
     int xValue; //x coordinate

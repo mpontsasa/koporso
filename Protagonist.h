@@ -32,6 +32,8 @@ private:
     sf::Time jumpStart;
     float jumpVelocity;
 
+    //Animation walk;
+
 };
 
 #endif // PROTAGONIST_H

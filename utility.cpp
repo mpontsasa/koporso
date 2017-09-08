@@ -12,8 +12,7 @@ GameView gameView(0, 0, 3000, 2000);
 
 float protagonistSpeed; //pixels / millisecond
 float depthPerHeight = 2;
-int introTriggerDistance = 300;
-int outroTriggerDistance = 250;
+int triggerDistance = 320;
 
 void initializeUtility ()
 {
@@ -21,5 +20,20 @@ void initializeUtility ()
 //Time initialization
     gameClock.restart();    // start the GameClock
     lastUpdate = sf::milliseconds(0);
-    protagonistSpeed = 1;   //pixels / millisecond
+    protagonistSpeed = 0.5;   //pixels / millisecond
+}
+
+int getViewLeftBorder()
+{
+    return gameView.view.getCenter().x - gameView.view.getSize().x / 2;
+}
+
+int getViewRightBorder()
+{
+    return gameView.view.getCenter().x + gameView.view.getSize().x / 2;
+}
+
+bool xInView (int x)
+{
+    return (x > getViewLeftBorder() && x < getViewRightBorder());
 }
