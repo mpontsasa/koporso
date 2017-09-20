@@ -16,7 +16,7 @@ std::string conv(int x)
 
 }
 
-Animation::Animation(const std::string name_, sf::Sprite **spr, int frame_nr, sf::Time length, int x, int y, bool flippable):length(length), spr(spr)
+Animation::Animation(const std::string name_, sf::Sprite **spr, int frame_nr, sf::Time length, int x, int y):length(length), spr(spr)
 {
     name=name_;
     f_nr=frame_nr;
@@ -30,16 +30,6 @@ Animation::Animation(const std::string name_, sf::Sprite **spr, int frame_nr, sf
         (frames + i ) -> setTexture(textures[i]);
         (frames + i ) ->setPosition(x, y);
     }
-
-    if(flippable)
-    {
-        flipped=new bool[f_nr];
-
-        for(int i=0; i<f_nr; i++)
-            flipped[i]=0;   //0=right, 1=left
-    }
-    else
-        flipped=NULL;
 }
 
 Animation::~Animation()
