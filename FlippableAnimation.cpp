@@ -1,6 +1,6 @@
 #include "FlippableAnimation.h"
 
-FlippableAnimation::FlippableAnimation()
+/*FlippableAnimation::FlippableAnimation()
 {
     //ctor
-}
+}*/

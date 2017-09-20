@@ -8,7 +8,6 @@
 #include "gameview.h"
 #include "utility.h"
 #include "fixedground.h"
-#include "scene.h"
 #include "../koporso/Animation.h"
 #include "../koporso/TestingAnimation.h"
 

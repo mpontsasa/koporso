@@ -1,7 +1,7 @@
 #ifndef FLIPPABLEANIMATION_H
 #define FLIPPABLEANIMATION_H
 
-#include <Animation.h>
+#include "Animation.h"
 
 
 class FlippableAnimation : public Animation

@@ -64,6 +64,6 @@ void Animation::update_animation(bool direction)    //direction: 0=right, 1=left
 
     *spr = frames + current_frame_index;
 
-    if(direction != flipped[current_frame_index])
-        (*spr)->setTextureRect(sf::IntRect(width, 0, -width, height))
+    /*if(direction != flipped[current_frame_index])
+        (*spr)->setTextureRect(sf::IntRect(width, 0, -width, height))*/
 }
