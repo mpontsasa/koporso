@@ -4,23 +4,19 @@
 #include "Animation.h"
 
 enum Direction
-        {
-            left=0, right=1
-        };
+{
+    left=0, right=1
+};
 
 class FlippableAnimation : public Animation
 {
-    public:
-        FlippableAnimation(const std::string name_, sf::Sprite **spr, int frame_nr, sf::Time length, int height, int width, int x = 100, int y = 100);   //dir: (starting direction) 0=left, 1=right
+public:
+    FlippableAnimation(const std::string name_, sf::Sprite **spr, int frame_nr, sf::Time length, int height, int width, int x = 100, int y = 100);   //dir: (starting direction) 0=left, 1=right
+    void flip(Direction dir_);
+protected:
 
-    protected:
-
-    private:
-
-        Direction direction;
-        int height, width;
-
-        void flip(Direction dir_);
+    Direction direction;
+    int height, width;
 
 };
 

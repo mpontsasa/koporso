@@ -4,6 +4,7 @@
 #include <SFML/System/Vector2.hpp>
 #include "ScreenObject.h"
 #include "fixedground.h"
+#include "FlippableAnimation.h"
 
 class Protagonist : public ScreenObject
 {
@@ -14,7 +15,7 @@ public:
     void drawThis();
 
     void startJump();
-
+        FlippableAnimation walk;
 private:
 
     sf::Texture *texture;
@@ -32,7 +33,7 @@ private:
     sf::Time jumpStart;
     float jumpVelocity;
 
-    //Animation walk;
+
 
 };
 

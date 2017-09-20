@@ -1,5 +1,6 @@
 #include "../koporso/StandardSO.h"
 #include <iostream>
+
 void StandardSO::drawThis()
 {
     switch (AnimationState)

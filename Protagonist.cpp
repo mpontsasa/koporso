@@ -4,7 +4,7 @@
 #include "utility.h"
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg)
+Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk("../koporso/Resources/protagonist", &sprite, 2, sf::milliseconds(700), 611, 300)
 {
 
     texture = new sf::Texture;
@@ -38,7 +38,7 @@ void Protagonist::drawThis()
         {
             xValue = fixedground -> getXValue() - width / 2 + 1;    //move it to the edge of the fixed ground
         }
-
+        walk.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
@@ -50,6 +50,7 @@ void Protagonist::drawThis()
         {
             xValue = fixedground ->getXValue() + fixedground ->getWidth() - width / 2 - 1;    //move it to the edge of the fixed ground
         }
+        walk.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
@@ -92,18 +93,30 @@ void Protagonist::getEvent(sf::Event event)
         switch (event.key.code)
         {
         case sf::Keyboard::Left:
+            if (!walking_left)
+            {
+                walk.flip(left);
+                walk.play_animation();
+            }
             walking_left = 1;
             walking_right = 0;
             walking_back = 0;
             walking_forth = 0;
             directio = 1;
+            walk.update_animation();
             break;
         case sf::Keyboard::Right:
+            if (!walking_right)
+            {
+                walk.flip(right);
+                walk.play_animation();
+            }
             walking_left = 0;
             walking_right = 1;
             walking_back = 0;
             walking_forth = 0;
             directio = 0;
+            walk.update_animation();
             break;
         case sf::Keyboard::Up:
             walking_left = 0;
