@@ -4,7 +4,8 @@
 #include "utility.h"
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300),walk_forth("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),walk_back("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298)
+
+Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300),walk_forth("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),walk_back("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298), stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(10000))
 {
 
     texture = new sf::Texture;
@@ -82,6 +83,11 @@ void Protagonist::drawThis()
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
+    else    //standing
+    {
+        stand_anim.update_animation();
+        sprite ->setPosition(xValue, yValue);
+    }
 
     ScreenRoot::access().window->draw(*sprite);
 }
@@ -147,15 +153,19 @@ void Protagonist::getEvent(sf::Event event)
         {
         case sf::Keyboard::Left:
             walking_left = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Right:
             walking_right = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Up:
             walking_back = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Down:
             walking_forth = 0;
+            stand_anim.play_animation();
             break;
         default:
             break;
