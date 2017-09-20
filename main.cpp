@@ -41,7 +41,7 @@ int main()
     ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addDinamicSo(&creature1);
 
-protagonist.walk.play_animation();
+
 // Initializing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 

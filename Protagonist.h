@@ -15,7 +15,7 @@ public:
     void drawThis();
 
     void startJump();
-        FlippableAnimation walk;
+
 private:
 
     sf::Texture *texture;
@@ -33,7 +33,7 @@ private:
     sf::Time jumpStart;
     float jumpVelocity;
 
-
+    FlippableAnimation walk;
 
 };
 
