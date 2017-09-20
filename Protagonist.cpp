@@ -4,7 +4,7 @@
 #include "utility.h"
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk("../koporso/Resources/protagonist", &sprite, 2, sf::milliseconds(700), 611, 300)
+Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300), stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(10000))
 {
 
     texture = new sf::Texture;
@@ -38,7 +38,7 @@ void Protagonist::drawThis()
         {
             xValue = fixedground -> getXValue() - width / 2 + 1;    //move it to the edge of the fixed ground
         }
-        walk.update_animation();
+        walk_horizontal.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
@@ -50,7 +50,7 @@ void Protagonist::drawThis()
         {
             xValue = fixedground ->getXValue() + fixedground ->getWidth() - width / 2 - 1;    //move it to the edge of the fixed ground
         }
-        walk.update_animation();
+        walk_horizontal.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
@@ -80,6 +80,11 @@ void Protagonist::drawThis()
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
     }
+    else    //standing
+    {
+        stand_anim.update_animation();
+        sprite ->setPosition(xValue, yValue);
+    }
 
     ScreenRoot::access().window->draw(*sprite);
 }
@@ -95,28 +100,28 @@ void Protagonist::getEvent(sf::Event event)
         case sf::Keyboard::Left:
             if (!walking_left)
             {
-                walk.flip(left);
-                walk.play_animation();
+                walk_horizontal.flip(left);
+                walk_horizontal.play_animation();
             }
             walking_left = 1;
             walking_right = 0;
             walking_back = 0;
             walking_forth = 0;
             directio = 1;
-            walk.update_animation();
+            walk_horizontal.update_animation();
             break;
         case sf::Keyboard::Right:
             if (!walking_right)
             {
-                walk.flip(right);
-                walk.play_animation();
+                walk_horizontal.flip(right);
+                walk_horizontal.play_animation();
             }
             walking_left = 0;
             walking_right = 1;
             walking_back = 0;
             walking_forth = 0;
             directio = 0;
-            walk.update_animation();
+            walk_horizontal.update_animation();
             break;
         case sf::Keyboard::Up:
             walking_left = 0;
@@ -141,15 +146,19 @@ void Protagonist::getEvent(sf::Event event)
         {
         case sf::Keyboard::Left:
             walking_left = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Right:
             walking_right = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Up:
             walking_back = 0;
+            stand_anim.play_animation();
             break;
         case sf::Keyboard::Down:
             walking_forth = 0;
+            stand_anim.play_animation();
             break;
         default:
             break;

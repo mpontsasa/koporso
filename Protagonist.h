@@ -30,10 +30,12 @@ private:
 
     FixedGround *fixedground;
 
+
     sf::Time jumpStart;
     float jumpVelocity;
 
-    FlippableAnimation walk;
+    FlippableAnimation walk_horizontal;
+    Animation stand_anim;
 
 };
 
