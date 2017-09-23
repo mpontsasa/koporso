@@ -6,6 +6,7 @@
 #include <list>
 #include "Animation.h"
 
+
 class ScreenObject  // Everything in the screen
 {
 public:
@@ -55,20 +56,4 @@ protected:
     std::list<ScreenObject*> groundObjectList;    //Sub-objects have depth
 };
 
-
-class ScreenRoot : public ScreenObject // SINGLETON!
-{
-public:
-    void getEvent(sf::Event event_){}   // Don't do anything with event
-    virtual bool hit(sf::Vector2i point){return 1;} // Always hit
-    virtual void drawThis(){}   //No need to draw anything
-
-    static ScreenRoot& access();    // Return the root object++
-
-    sf::RenderWindow *window;
-
-private:
- //   ScreenRoot(){}
-
-};
 #endif //SCREENOBJECT_H

@@ -1,9 +1,4 @@
-Creature set_outro::	// set_intro alapjan
-Thing in_outroll	// creature alapjan
+Thing in_outro	// creature alapjan
 	in::
 	out::
-view
-protagonist	
-	right arrow::
-	left arrow::
-Interactable list for click handling::
+Background

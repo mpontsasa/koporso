@@ -1,9 +1,10 @@
 #ifndef FIXEDGROUND_H
 #define FIXEDGROUND_H
 
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include "ScreenObject.h"
-#include <SFML/Graphics.hpp>
+#include "ScreenRoot.h"
 
 
 class FixedGround : public ScreenObject

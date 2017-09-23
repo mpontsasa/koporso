@@ -8,6 +8,7 @@
 #include "gameview.h"
 #include "utility.h"
 #include "fixedground.h"
+#include "Background.h"
 #include "../koporso/Animation.h"
 #include "../koporso/TestingAnimation.h"
 
@@ -31,15 +32,19 @@ int main()
 
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
 
+    Background background("../koporso/Resources/background.jpg", 0, 0, -10000, 0.2);
+
     ///SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
     ///SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
     ///ScreenRoot::access().addStaticSo(&img);
     ///ScreenRoot::access().addStaticSo(&img2);
+    ScreenRoot::access().addBackground(&background);
     ScreenRoot::access().addStaticSo(&fg);
     ScreenRoot::access().addStaticSo(x);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addDinamicSo(&creature1);
+
 
 
 // Initializing the screen

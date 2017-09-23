@@ -5,7 +5,11 @@
 
 
 
-Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg): fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300),walk_forth("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),walk_back("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298), stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(10000))
+Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg):
+fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300),
+walk_forth("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),
+walk_back("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),
+stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(10000))
 {
 
     texture = new sf::Texture;

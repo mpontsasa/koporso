@@ -1,6 +1,7 @@
-#include "ScreenObject.h"
 #include <list>
 #include <iostream>
+#include "ScreenRoot.h"
+#include "ScreenObject.h"
 
 void ScreenObject::draw()
 {
@@ -152,3 +153,8 @@ ScreenRoot& ScreenRoot::access()
     return root;
 }
 
+
+void ScreenRoot::addBackground(Background *background_)
+{
+    background = background_;
+}

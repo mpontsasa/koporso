@@ -34,8 +34,8 @@ private:
     sf::Time jumpStart;
     float jumpVelocity;
 
-    Animation walk_forth,walk_back,stand_anim;
     FlippableAnimation walk_horizontal;
+    Animation walk_forth,walk_back,stand_anim;
 
 };
 

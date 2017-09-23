@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Protagonist.h"
+#include "Background.h"
 
 class GameView
 {

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "ScreenObject.h"
+#include "ScreenRoot.h"
 #include "SimpleImage.h"
 #include <iostream>
 
