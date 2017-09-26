@@ -99,7 +99,7 @@ int main()
                 }
                 case sf::Event::MouseButtonPressed:
                 {
-                    if(sos.hit(sf::Mouse::getPosition()))
+                    if(sos.hit(sf::Mouse::getPosition()))   ///test
                     {
                         sos.getEvent(event);
                     }
@@ -154,7 +154,7 @@ int main()
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
 
-            x->a->update_animation();
+            x->a->update_animation();///test
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();
             ScreenRoot::access().window->display();

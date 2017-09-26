@@ -17,7 +17,6 @@ Background::Background(const char *img, int x, int y, int z, float ratio_x): rat
 
 void Background::followScreen(int moved)
 {
-    std::cout << "followScreen " << moved <<"\n";
     xValue += moved*ratio_x;
     sprite.setPosition(xValue,yValue);
 }

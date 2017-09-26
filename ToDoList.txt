@@ -1,4 +1,11 @@
 Thing in_outro	// creature alapjan
 	in::
 	out::
-Background
+Helyszin mentes::matyi(?)
+	thing
+	creature
+	fixedGround
+	Background
+	
+	
+Blocker objects	//cuccok amiken nem tud atmenni a foszereplo....nehez.

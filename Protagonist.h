@@ -18,7 +18,7 @@ public:
 
 private:
 
-    sf::Texture *texture;
+    sf::Texture *texture;   /// get rid of
     sf::Sprite *sprite;
 
     bool directio; //0 right, 1 left
