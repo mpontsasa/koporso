@@ -12,7 +12,7 @@
 #include "../koporso/Animation.h"
 #include "../koporso/TestingAnimation.h"
 
-///BESZALT MATYI IS AYYYY$$$$$$$$$$$$$
+///BESZALT MATYI IS AYYYY
 int main()
 {
     initializeUtility();
