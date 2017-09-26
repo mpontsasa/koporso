@@ -13,6 +13,7 @@
 #include "../koporso/TestingAnimation.h"
 
 ///BESZALT MATYI IS AYYYY$$$$$$$$$$$$$
+///az is lehet hogy bszalt az ket l de en ezt em tudom(es nem vagyok uszke ra)
 int main()
 {
     initializeUtility();
