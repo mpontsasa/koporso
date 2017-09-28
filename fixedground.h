@@ -10,7 +10,7 @@
 class FixedGround : public ScreenObject
 {
 public:
-    FixedGround(int x, int y, int z, int width, int height, const char img[]);
+    FixedGround(const char *img,int x, int y, int z, int width, int height);
 
     bool onTheGround(ScreenObject &so);
 
