@@ -25,7 +25,7 @@ int main()
 
     ShapeSO sos;
 
-    FixedGround fg(-5000,1000,0,10880,696, "../koporso/Resources/fixedGround.jpg");
+    FixedGround fg("../koporso/Resources/fixedGround.jpg",-5000,1000,0,10880,696);
 
     //Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
     Creature thing("../koporso/Resources/The_Thing.png", 0, 0, -1000, 1977, 1939);

@@ -2,7 +2,7 @@
 #include "utility.h"
 #include <iostream>
 
-FixedGround::FixedGround(int x, int y, int z, int width, int height, const char img[]): ScreenObject(x,y,z,width,height, height * depthPerHeight)
+FixedGround::FixedGround(const char *img, int x, int y, int z, int width, int height): ScreenObject(x,y,z,width,height, height * depthPerHeight)
 {
     texture = new sf::Texture;
     sprite = new sf::Sprite;
