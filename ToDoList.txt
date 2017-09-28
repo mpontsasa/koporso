@@ -1,7 +1,7 @@
 Thing in_outro	// creature alapjan
 	in::
 	out::
-Helyszin mentes::matyi(?)
+Helyszin mentes::matyi
 	thing
 	creature
 	fixedGround

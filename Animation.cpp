@@ -48,7 +48,7 @@ void Animation::update_animation()
     *spr = frames + ((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
 }
 
-void Animation::update_animation(bool direction)    //direction: 0=right, 1=left
+void Animation::update_animation(bool direction)    //direction: 0=right, 1=left    ///not used
 {
     int current_frame_index=((gameClock.getElapsedTime()-init).asMilliseconds()/interval.asMilliseconds())%f_nr;
 

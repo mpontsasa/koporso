@@ -53,7 +53,6 @@ protected:
 
     std::list<ScreenObject*> dinamicObjectList;   //Sub-objects that may move in depth on the stage
     std::list<ScreenObject*> staticObjectList;    //Sub-objects that don't move in depth on the stage
-    std::list<ScreenObject*> groundObjectList;    //Sub-objects have depth
 };
 
 #endif //SCREENOBJECT_H
