@@ -45,8 +45,6 @@ int main()
     ScreenRoot::access().addDinamicSo(&protagonist);
     ScreenRoot::access().addDinamicSo(&creature1);
 
-
-
 // Initializing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 
@@ -153,7 +151,7 @@ int main()
 
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
-
+            //std::cout << protagonist.getZValue()<<" " << creature1.getZValue() << '\n';
             x->a->update_animation();///test
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();

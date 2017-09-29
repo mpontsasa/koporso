@@ -9,3 +9,6 @@ Helyszin mentes::matyi
 	
 	
 Blocker objects	//cuccok amiken nem tud atmenni a foszereplo....nehez.
+
+Destruktorok becsuletes megirasa::
+Konstruktorok becsuletes megirasa(ososztaly konstruktormeghivasa)::

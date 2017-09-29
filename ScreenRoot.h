@@ -3,6 +3,7 @@
 
 #include "ScreenObject.h"
 #include "Background.h"
+#include <iostream>
 
 class ScreenRoot : public ScreenObject // SINGLETON!
 {
@@ -17,5 +18,6 @@ public:
 
     sf::RenderWindow *window;
     Background *background;
+
 };
 #endif //SCREENROOT_H

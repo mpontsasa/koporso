@@ -31,6 +31,7 @@ stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(100
 
     height = sprite ->getGlobalBounds().height;
     width = sprite ->getGlobalBounds().width;
+    depth = 0;
 }
 
 void Protagonist::drawThis()
@@ -69,6 +70,7 @@ void Protagonist::drawThis()
             yValue = fixedground ->getYValue() - height + 1;    //move it to the edge of the fixed ground
             zValue = fixedground ->getZValue();
         }
+        ScreenRoot::access().oneElementSort_din();
         walk_back.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -83,6 +85,7 @@ void Protagonist::drawThis()
             yValue = fixedground ->getYValue() + fixedground ->getHeight() - height - 1;    //move it to the edge of the fixed ground
             zValue = fixedground ->getZValue() + fixedground ->getDepth();
         }
+        ScreenRoot::access().oneElementSort_din();
         walk_forth.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
