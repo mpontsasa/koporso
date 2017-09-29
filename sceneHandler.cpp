@@ -34,23 +34,27 @@ className strToClass(std::string x)
     if(x == "Background") return Background_enum;
     else if(x == "Creature") return Creature_enum;
     else if(x == "Thing") return Thing_enum;
-    else if(x == "FixedGroung") return FixedGround_enum;
+    else if(x == "FixedGround") return FixedGround_enum;
 }
 ///^^^convert a string into the corresponding enum type
 ///used for a switch() in the file loader function
 
-void loadSceneFromFile()
+void loadSceneFromFile(std::string inputFileLocation)
 {
-    std::ifstream inputFile("kicsigyerek.txt");
+    ScreenRoot::access().wipeRoot();
+    //std::cout << inputFileLocation;
+    std::ifstream inputFile(inputFileLocation);
     std::string inputString;
-
+    //getline(inputFile,inputString);
+    //std::cout << inputString;
+    //std::cout << "jenfjenf";
 
     getline(inputFile,inputString);
     while(inputString != "END")
     {
         std::vector<std::string> objectData;
         split(inputString,';',objectData);
-
+        //std::cout << objectData[0];
         switch(strToClass(objectData[0]))
         {
         case Background_enum:
@@ -98,6 +102,7 @@ void loadSceneFromFile()
                 int width = stoi(objectData[5]);
                 int height = stoi(objectData[6]);
                 FixedGround* theGround = new FixedGround(image.c_str(),x,y,z,width,height);
+                (ScreenRoot::access()).addFixedGround(theGround); ///this is for the initialization of the protagonist
                 (ScreenRoot::access()).addStaticSo(theGround);
 
             }

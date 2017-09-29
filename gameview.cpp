@@ -2,6 +2,7 @@
 #include "ScreenObject.h"
 #include "Background.h"
 #include <iostream>
+#include "ScreenRoot.h"
 
 GameView::GameView(int upperLeftX, int upperLeftY, int lowerRightX, int lowerRightY)
 {

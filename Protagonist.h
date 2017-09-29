@@ -10,6 +10,8 @@ class Protagonist : public ScreenObject
 {
 public:
     Protagonist(const char *img, int x, int y, int z, FixedGround *fg);
+    ~Protagonist(){}
+
     void getEvent(sf::Event event);
     bool hit(sf::Vector2i point){return false;}
     void drawThis();

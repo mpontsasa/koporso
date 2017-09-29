@@ -71,3 +71,23 @@ void ScreenRoot::addBackground(Background *background_)
 {
     background = background_;
 }
+
+void ScreenRoot::addFixedGround(FixedGround *theGround_)
+{
+    theGround = theGround_;
+}
+
+void ScreenRoot::wipeRoot()
+{
+    for(auto iter = dinamicObjectList.begin(); iter != dinamicObjectList.end(); iter++)
+    {
+        delete *iter;
+    }
+    for(auto iter = staticObjectList.begin(); iter != staticObjectList.end(); iter++)
+    {
+        delete *iter;
+    }
+    dinamicObjectList.erase(dinamicObjectList.begin(),dinamicObjectList.end());
+    staticObjectList.erase(staticObjectList.begin(),staticObjectList.end());
+    background = NULL;
+}

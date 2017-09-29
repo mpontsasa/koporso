@@ -9,7 +9,7 @@ public:
     void getEvent(sf::Event event_){};    //Handles the event
     bool hit(sf::Vector2i point){return true;};         //true if the object contains (x,y) point
     void drawThis();
-
+    ~Background(){}
     Background(const char *img, int x, int y, int z, float ratio_x);
 
     void followScreen(int moved);

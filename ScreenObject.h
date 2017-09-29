@@ -12,7 +12,7 @@ class ScreenObject  // Everything in the screen
 public:
     ScreenObject(int x, int y, int z, int width, int height, int depth = 0):xValue(x), yValue(y), zValue(z),height(height),width(width), depth(depth){}
     ScreenObject(){}
-
+    virtual ~ScreenObject(){}
 
     virtual void getEvent(sf::Event event_) = 0;    //Handles the event
     virtual bool hit(sf::Vector2i point) = 0;         //true if the object contains (x,y) point

@@ -7,6 +7,7 @@
 
 class StandardSO : public ScreenObject
 {
+
     void drawThis();
     bool hit(sf::Vector2i point){return 1;} ///test
 

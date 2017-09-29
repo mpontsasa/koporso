@@ -11,39 +11,46 @@
 #include "Background.h"
 #include "../koporso/Animation.h"
 #include "../koporso/TestingAnimation.h"
+#include "sceneHandler.h"
+#include "ScreenRoot.h"
 
 int main()
 {
+
     initializeUtility();
 
-    TestAnimation *x=new TestAnimation();
-
-    x->a->play_animation();
-    x->a->update_animation();
 
     ShapeSO sos;
 
-    FixedGround fg("../koporso/Resources/fixedGround.jpg",-5000,1000,0,10880,696);
+  /*  FixedGround fg("../koporso/Resources/fixedGround.jpg",-5000,1000,0,10880,696);
 
     //Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
     Creature thing("../koporso/Resources/The_Thing.png", 0, 0, -1000, 1977, 1939);
 
     Creature creature1("../koporso/Resources/Creature.png", 30, 800, 2, 319, 308);
 
-    Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, &fg);
+
 
     Background background("../koporso/Resources/background.jpg", 0, 0, -10000, 0.2);
 
-    ///SimpleImage img("../koporso/Resources/lion.png",-100,-50,3);
-    ///SimpleImage img2("../koporso/Resources/lion.png",100,100,5);
-    ///ScreenRoot::access().addStaticSo(&img);
-    ///ScreenRoot::access().addStaticSo(&img2);
+
     ScreenRoot::access().addBackground(&background);
     ScreenRoot::access().addStaticSo(&fg);
-    ScreenRoot::access().addStaticSo(x);
     ScreenRoot::access().addStaticSo(&thing);
+    ScreenRoot::access().addStaticSo(&creature1);
+    ///test junk being added
+
+
+*/
+
+
+
+///loadFileFromScene will call ScreenRoot::WipeRoot() and wipe junk
+///then load all objects from file except the protagonist
+    loadSceneFromFile("../koporso/Resources/fileLoadTest.txt");
+
+    Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, (ScreenRoot::access()).theGround);
     ScreenRoot::access().addDinamicSo(&protagonist);
-    ScreenRoot::access().addDinamicSo(&creature1);
 
 
 
@@ -154,7 +161,6 @@ int main()
         if (gameClock.getElapsedTime() > lastUpdate + updateTime)
         {
 
-            x->a->update_animation();///test
             ScreenRoot::access().window->clear();
             ScreenRoot::access().draw();
             ScreenRoot::access().window->display();

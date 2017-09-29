@@ -1,5 +1,6 @@
 #include "../koporso/StandardSO.h"
 #include <iostream>
+#include "ScreenRoot.h"
 
 void StandardSO::drawThis()
 {

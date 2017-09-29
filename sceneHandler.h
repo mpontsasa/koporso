@@ -10,3 +10,8 @@ enum className
 {Background_enum,Creature_enum,Thing_enum,FixedGround_enum};
 
 className strToClass(std::string x);
+
+
+void loadSceneFromFile(std::string inputFileLocation);
+///calls ScreenRoot::WipeRoot()
+///MUST BE CALLED BEFORE ADDING THE PROTAGONIST

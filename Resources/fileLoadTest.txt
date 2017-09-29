@@ -1,0 +1,5 @@
+FixedGround;../koporso/Resources/fixedGround.jpg;-5000;1000;0;10880;696
+Creature;../koporso/Resources/The_Thing.png;0;0;-1000;1977;1939
+Background;../koporso/Resources/background.jpg;0;0;-10000;0.2
+Creature;../koporso/Resources/Creature.png;30;800;2;319;308
+END

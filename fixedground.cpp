@@ -1,6 +1,7 @@
 #include "fixedground.h"
 #include "utility.h"
 #include <iostream>
+#include "ScreenRoot.h"
 
 FixedGround::FixedGround(const char *img, int x, int y, int z, int width, int height): ScreenObject(x,y,z,width,height, height * depthPerHeight)
 {
@@ -24,4 +25,9 @@ bool FixedGround::onTheGround (ScreenObject &so)   // so: the screen object, wid
     return xMiddle >= xValue && xMiddle <= xValue + width &&
         yBottom >= yValue && yBottom <= yValue + height &&
         so.getZValue() >= zValue && so.getZValue() <= zValue + depth;  // if the ScreenObject is in the Fixed Ground
+}
+
+void FixedGround::drawThis()
+{
+    ScreenRoot::access().window->draw(*sprite);
 }
