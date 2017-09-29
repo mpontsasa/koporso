@@ -8,8 +8,8 @@
 
 Protagonist::Protagonist(const char *img, int x, int y, int z, FixedGround *fg):
 fixedground(fg), walk_horizontal("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 611, 300),
-walk_forth("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),
-walk_back("../koporso/Resources/Stickman", &sprite, 2, sf::milliseconds(700), 208,298),
+walk_forth("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 208,298),
+walk_back("../koporso/Resources/protagonist_walk_horizontal", &sprite, 2, sf::milliseconds(700), 208,298),
 stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(10000))
 {
 
@@ -32,6 +32,7 @@ stand_anim("../koporso/Resources/protagonist_stand", &sprite, 1, sf::seconds(100
 
     height = sprite ->getGlobalBounds().height;
     width = sprite ->getGlobalBounds().width;
+    depth = 0;
 }
 
 void Protagonist::drawThis()
@@ -70,6 +71,7 @@ void Protagonist::drawThis()
             yValue = fixedground ->getYValue() - height + 1;    //move it to the edge of the fixed ground
             zValue = fixedground ->getZValue();
         }
+        ScreenRoot::access().oneElementSort_din();
         walk_back.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);
@@ -84,6 +86,7 @@ void Protagonist::drawThis()
             yValue = fixedground ->getYValue() + fixedground ->getHeight() - height - 1;    //move it to the edge of the fixed ground
             zValue = fixedground ->getZValue() + fixedground ->getDepth();
         }
+        ScreenRoot::access().oneElementSort_din();
         walk_forth.update_animation();
         sprite ->setPosition(xValue, yValue);
         gameView.followProtagonist(*this);

@@ -19,6 +19,31 @@ void ScreenObject::draw()
         (*dinIter) -> draw();
         dinIter ++;
     }
+
+    while(dinIter != dinamicObjectList.end() && statIter != staticObjectList.end()) //While there are static and dynamic objects to, draw the one in the back
+    {
+
+        if ((*dinIter) -> getFront() < (*statIter) -> getBack())
+        {
+            (*dinIter) -> draw();
+            dinIter ++;
+        }
+        else
+        {
+            (*statIter) -> draw();
+            statIter ++;
+        }
+    }
+    while (dinIter != dinamicObjectList.end())  //draw remaining dynamic screen objects
+    {
+        (*dinIter) -> draw();
+        dinIter ++;
+    }
+    while (statIter != staticObjectList.end()) //draw remaining static screen objects
+    {
+            (*statIter) -> draw();
+            statIter ++;
+    }
 }
 
 void ScreenObject::addStaticSo(ScreenObject *so_)
@@ -58,6 +83,42 @@ void ScreenObject::addDinamicSo(ScreenObject *so_)
         li2--;
     }
     (*li) = so_;
+}
+
+void ScreenObject::oneElementSort_din()
+{
+    auto iter = dinamicObjectList.begin();
+    iter ++;
+    for (;iter != dinamicObjectList.end(); iter ++)
+    {
+
+        auto last = iter;
+        last --;
+        if ((*iter) ->getFront() < (*last) ->getFront())
+        {
+            ScreenObject *swc = *iter;
+            *iter = *last;
+            *last = swc;
+        }
+    }
+
+    iter = dinamicObjectList.end();
+    iter --;
+    if (iter != dinamicObjectList.begin())
+        iter --;
+
+    for (;iter != dinamicObjectList.begin(); iter --)
+    {
+        auto next = iter;
+        next ++;
+        if ((*iter) ->getFront() > (*next) ->getFront())
+        {
+            std::cout << "2\n";
+            ScreenObject *swc = *iter;
+            *iter = *next;
+            *next = swc;
+        }
+    }
 }
 
 ScreenRoot& ScreenRoot::access()

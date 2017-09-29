@@ -52,8 +52,6 @@ int main()
     Protagonist protagonist("../koporso/Resources/protagonist.png",1500, 600, 10, (ScreenRoot::access()).theGround);
     ScreenRoot::access().addDinamicSo(&protagonist);
 
-
-
 // Initializing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
 

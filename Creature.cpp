@@ -11,6 +11,7 @@ Creature::Creature(const char *img, int x, int y, int z, int height_, int width_
 
     height = height_;
     width = width_;
+    depth = 0;
 
     xValue = x;
     yValue = gameView.view.getSize().y;

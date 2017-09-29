@@ -35,6 +35,7 @@ className strToClass(std::string x)
     else if(x == "Creature") return Creature_enum;
     else if(x == "Thing") return Thing_enum;
     else if(x == "FixedGround") return FixedGround_enum;
+    else return Background_enum;///will never execute unless file is written incorrectly, could be reformatted into error handling
 }
 ///^^^convert a string into the corresponding enum type
 ///used for a switch() in the file loader function

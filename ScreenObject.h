@@ -42,6 +42,8 @@ public:
     int getRight() const {return xValue + width;}
     int getLeft() const {return xValue;}
 
+    void oneElementSort_din();  // Sorts the dinamicObjectList if only one element is in the wrong place
+
 protected:
     int xValue; //x coordinate
     int yValue; //y coordinate

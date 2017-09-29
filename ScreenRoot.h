@@ -5,6 +5,7 @@
 #include "Background.h"
 #include "fixedground.h"
 
+
 class ScreenRoot : public ScreenObject // SINGLETON!
 {
 public:
@@ -20,7 +21,9 @@ public:
     static ScreenRoot& access();    // Return the root object++
 
     sf::RenderWindow *window;
+
     Background *background;
     FixedGround* theGround;
+
 };
 #endif //SCREENROOT_H
