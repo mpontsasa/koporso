@@ -1,12 +1,13 @@
 #include<iostream>
 #include"ScreenObject.h"
 #include "utility.h"
-
+/*
 class CollisionHandler{
 
     CollisionHandler(){};
-    std::vector<ScreenObject*> collidableObjects;
+    std::vector<Collidable*> collidableObjects;
 public:
    static CollisionHandler& access();
-   void checkCollision(ScreenObject* otherObject, Direction _direction, sf::Vector3i& newPoint);
+   void checkCollision(Collidable* otherObject, Direction _direction, sf::Vector3i& newPoint);
 };
+*/
