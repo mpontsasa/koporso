@@ -9,16 +9,6 @@ void ScreenObject::draw()
     auto dinIter = dinamicObjectList.begin();   //Iterator for list of dynamic sub-objects
     auto statIter = staticObjectList.begin();
 
-    while (statIter != staticObjectList.end())
-    {
-        (*statIter) -> draw();
-        statIter ++;
-    }
-    while (dinIter != dinamicObjectList.end())
-    {
-        (*dinIter) -> draw();
-        dinIter ++;
-    }
 
     while(dinIter != dinamicObjectList.end() && statIter != staticObjectList.end()) //While there are static and dynamic objects to, draw the one in the back
     {

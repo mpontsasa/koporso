@@ -19,28 +19,20 @@ int main()
 
     initializeUtility();
 
-
     ShapeSO sos;
 
   /*  FixedGround fg("../koporso/Resources/fixedGround.jpg",-5000,1000,0,10880,696);
 
     //Thing thing("../koporso/Resources/The_Thing.png",0,0,-1000);
     Creature thing("../koporso/Resources/The_Thing.png", 0, 0, -1000, 1977, 1939);
-
     Creature creature1("../koporso/Resources/Creature.png", 30, 800, 2, 319, 308);
-
-
-
     Background background("../koporso/Resources/background.jpg", 0, 0, -10000, 0.2);
-
 
     ScreenRoot::access().addBackground(&background);
     ScreenRoot::access().addStaticSo(&fg);
     ScreenRoot::access().addStaticSo(&thing);
     ScreenRoot::access().addStaticSo(&creature1);
     ///test junk being added
-
-
 */
 
 
@@ -54,7 +46,6 @@ int main()
 
 // Initializing the screen
     ScreenRoot::access().window = new sf::RenderWindow(desktop, "SFML Window", sf::Style::Fullscreen); //creates fullscreen window
-
     ScreenRoot::access().window->setView(gameView.view);
 
     while (ScreenRoot::access().window ->isOpen()) //while the window is open
