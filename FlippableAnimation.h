@@ -2,11 +2,7 @@
 #define FLIPPABLEANIMATION_H
 
 #include "Animation.h"
-
-enum Direction
-{
-    left=0, right=1
-};
+#include "../koporso/utility.h"
 
 class FlippableAnimation : public Animation
 {

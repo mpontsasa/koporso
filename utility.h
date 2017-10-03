@@ -3,8 +3,13 @@
 
 #include <SFML/System/Clock.hpp>
 #include <SFML/Graphics.hpp>
-#include "gameview.h"
 #include <string>
+
+
+enum Direction
+{
+    left=0, right=1, back, front
+};
 
 const sf::Time introTime = sf::milliseconds(300);  // intro time in milliseconds
 const float gravity = 10;   //pixels/sec
@@ -16,8 +21,6 @@ extern sf::Time lastUpdate;
 extern sf::Time updateTime;
 
 void initializeUtility ();
-
-extern GameView gameView;
 
 std::string conv(int x);
 

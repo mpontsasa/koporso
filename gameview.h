@@ -16,4 +16,10 @@ public:
     int sizeOfViewCenter; //size of the part in which the protagonist can move without view scrolls
 };
 
+extern GameView gameView;
+
+int getViewRightBorder();
+int getViewLeftBorder();
+bool xInView (int x);
+
 #endif // GAMEVIEW_H

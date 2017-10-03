@@ -1,5 +1,6 @@
 #include "Creature.h"
 #include "utility.h"
+#include "gameview.h"
 #include <iostream>
 
 Creature::Creature(const char *img, int x, int y, int z, int height_, int width_)

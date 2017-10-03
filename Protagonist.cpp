@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Protagonist.h"
 #include "utility.h"
+#include "gameview.h"
 #include "ScreenRoot.h"
 
 

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "ScreenRoot.h"
 
+GameView gameView(0, 0, 3000, 2000);
+
 GameView::GameView(int upperLeftX, int upperLeftY, int lowerRightX, int lowerRightY)
 {
     sizeOfViewCenter = 1000;
@@ -34,4 +36,19 @@ void GameView::followProtagonist(Protagonist &prot)
         }
 
         ///Y axis case to come
+}
+
+int getViewLeftBorder()
+{
+    return gameView.view.getCenter().x - gameView.view.getSize().x / 2;
+}
+
+int getViewRightBorder()
+{
+    return gameView.view.getCenter().x + gameView.view.getSize().x / 2;
+}
+
+bool xInView (int x)
+{
+    return (x > getViewLeftBorder() && x < getViewRightBorder());
 }
